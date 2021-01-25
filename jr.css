@@ -1,0 +1,81 @@
+h1 {color:white; background:blue; padding-left: 10px; padding-top: 7px; padding-bottom: 5px;}
+h2 {color:white; background:gray; padding-left: 10px; margin-right:0%;  padding-top: 5px; padding-bottom: 2px;}
+h3 {color:white; background:green; margin-right:0%; padding-left: 10px; font-size:12pt; padding-top: 3px; padding-bottom: 2px;}
+h4 {margin-right:5%; padding-left: 10px; font-size:12pt;}
+body {color:black;background:white; font-size:12pt; line-height: 170%; font-family: "游ゴシック", "Yu Gothic", YuGothic, Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;font-weight: 500;}
+p, table, li, .Left, .Center{margin-Left:70px;margin-right:0%; font-size:12pt; line-height: 170%; font-family: "游ゴシック", "Yu Gothic", YuGothic, Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;font-weight: 500;}
+table{border-style: solid;border-width: 2px;border-collapse: collapse;margin-Left:70px;margin-right:0%; font-size:12pt; line-height: 170%; font-family: "游ゴシック", "Yu Gothic", YuGothic, Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;font-weight: 500;}
+th,td,tr{border-style: solid;border-width: 1px;margin-Left:70px;margin-right:0%; font-size:12pt; line-height: 170%; font-family: "游ゴシック", "Yu Gothic", YuGothic, Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;font-weight: 500;}
+.Right {margin-right:0%; font-size:12pt; line-height: 170%; font-family: "游ゴシック", "Yu Gothic", YuGothic, Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;font-weight: 500;}
+b,strong{color:red}
+A:link { color:#00A000; }
+A:visited { color:#006000; }
+A:active { color:red; }
+A:hover {color: red; font-weight: bold}
+
+.Main {
+	clear: both;
+	width: 900px;
+}
+
+.Images {
+	width: 900px;
+}
+
+.Left{
+	float: left;
+	width: 395px;
+	padding-top:10px;
+	padding-left:10px;
+	padding-bottom:10px;
+	border:solid 1px #000000;
+	margin-bottom:30px;
+	text-align:center;
+}
+
+.Right {
+	float: right;
+	width: 395px;
+	padding-top:10px;
+	padding-left:10px;
+	padding-bottom:10px;
+	border:solid 1px #000000;
+	margin-bottom:30px;
+	text-align:center;
+}
+
+.Center {
+	clear: both;
+	width: 810px;
+	padding-top:10px;
+	padding-left:10px;
+	padding-bottom:10px;
+	border:solid 1px #000000;
+	margin-bottom:30px;
+	text-align:center;
+}
+
+.ImageAround {
+	float: left;
+	margin-right:20px;
+	margin-bottom:10px;
+}
+
+.Navi {
+	text-align:center;
+	font-size:14pt;
+}
+
+.Youtube{ 
+	text-align:center;
+}
+
+.CodeArea {
+	border:solid 1px #000000;
+	margin-left: 10%;
+	margin-right: 10%;
+	line-height: 110%;
+	overflow-x: scroll;
+}
+
+
