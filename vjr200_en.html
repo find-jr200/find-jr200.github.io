@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Language" content="en">
+<meta charset="UTF-8">
+<title>JR-200 Emulator VJR-200</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" media="screen and (max-width:480px)" href="jr_m.css">
+<link rel="stylesheet" media="screen and (min-width:481px)" href="jr.css">
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-18578300-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<style type="text/css">
+.auto-style1 {
+	border-width: 1px solid #000000;
+}
+.auto-style2 {
+	border-width: 1px solid #000000;
+}
+</style>
+</head>
+<body>
+<div class="Main">
+<nav>
+<a href="index.html"><img src="images/top.png" width="100" height="50" alt="TOP"></a> 
+<a href="hard.html"><img src="images/hard_button.png" width="100" height="50" alt="HARDWARE"></a>
+<a href="soft.html"><img src="images/soft_button.png" width="100" height="50" alt="SOFTWARE"></a>
+<a href="junk.html"><img src="images/junk.png" width="100" height="50" alt="JUNK"></a>
+<a href="http://6928.teacup.com/find_jr200/bbs"><img src="images/bbs.png" width="100" height="50" alt="BBS"></a>
+</nav>
+
+<h1>JR-200 Emulator VJR-200 for Windows</h1>
+	<p>&nbsp; VJR-200 is an emulator of Panasonic JR-200 (Japanese model). 
+	However, some of JR-200U software work with VJR-200. English menu and message are available.</p>
+	<ul>
+		<li>&nbsp;VJR-200 for Android is <a href="vjr200android_en.html">here</a>.&nbsp;</li>
+		<li>JR2Rescue - WAV to CJR, CJR to WAV, etc converter is
+		<a href="jr2rescue_en.html">here</a>.</li>
+	</ul>
+	<p><img alt="" height="283" src="images/vjr200_1_en.png" width="350">
+	<img alt="" height="283" src="images/vjr200_2_en.png" width="350"></p>
+
+	<p>&nbsp; The following software was used for VJR-200 for Windows based on 
+	each license.</p>
+	<p>BSD 3 Clause License</p>
+	<p>MAME (http://www.mame.net/)<br>copyright-holders: Nicola Salmoria, Aaron 
+	Giles</p>
+	<p>cereal (https://uscilab.github.io/cereal/) <a href="license_cereal.txt">
+	LICENSE</a><br>copyright-holders: Randolph Voorhies, Shane Grant</p>
+	<p>Zlib License</p>
+	<p>TinyXML-2�@(https://github.com/leethomason/tinyxml2)<br>copyright-holder: 
+	Lee Thomason</p>
+	<p>&nbsp;</p>
+	<h3>Operation <span lang="en">environment</span></h3>
+	<p>Windows Vista SP2 or later</p>
+	<p>Because it uses Direct2D, it does not work on Windows XP.</p>
+	<h3>Download</h3>
+	<p>2020.12.10 Version 1.4.2</p>
+	<p>* Binary <a href="VJR200_142.zip">VJR200_142.zip</a> 
+	(176KB)</p>
+	<p>* Source code <a href="VJR200_142_source.zip">VJR200_142_source.zip</a> (405KB)</p>
+	<p>&nbsp; You can builld with Visual Studio 2015 Community.&nbsp; Version 1.3.1 
+	and later require cereal V 1.2.2 (<a href="https://uscilab.github.io/cereal/">https://uscilab.github.io/cereal/</a>). 
+	Please download and deploy this library,&nbsp; add <span style="font-family:SEGOE UI">cereal-1.2.2\include\</span> to the include path of 
+	Visual Studio.</p>
+	<p><a href="vjr200_history.html">former version</a> (Japanese page)</p>
+	<h4>Changes</h4>
+	<p>2020.12.10 Version 1.4.2</p>
+	<p>&nbsp;Watch view in debug window was improved.</p>
+	<p>2020.11.8 Version 1.4.1</p>
+	<p>1. enhanced the debugging function.</p>
+	<ul>
+		<li>Expanded the number of breakpoints to 12. You can temporarily 
+		disable a breakpoint by unchecking the checkbox to the left of the edit 
+		box.</li>
+		<li>Add a watch, which can show 1 byte or 2 bytes area in list form. 
+		However, the value of the watch only changes when you press Pause, Stop 
+		at a breakpoint or Step Execute. So the value may not match the memory 
+		window which is constantly updated.</li>
+		<li>Support for loading label file for debugging. See &quot;File - Load 
+		debugging label file&quot; 
+		for details on file formatting.</li>
+	</ul>
+	<p>2. CJR files can be dragged and dropped. You can drop up to 10 files at 
+	the same time, all files are &quot;Quick Loaded&quot;.</p>
+	<p>3. Some keyboard accelerators have been changed.</p>
+	<ul>
+		<li>File - Mount - Ctrl + Alt + M</li>
+		<li>File - Quick Load - Ctrl + Atl + Q</li>
+	</ul>
+	<p>4. &quot;File - Save CJR&quot; menu has been removed.</p>
+<h2 id="jyunbihen">Preparation</h2>
+<p>1. &nbsp;Extract ROM and font from actual machine.</p>
+<p>MSAVE "ROM1",$A000,$BFFF (file size 8192byte)<br>
+MSAVE "ROM2",$E000,$FFFF (file size 8192byte)<br>
+MSAVE "FONT",$D000,$D7FF (file size 2048byte)</p>
+<p>Please convert it to BIN file with JR2Rescue.</p>
+	<p>* JR2Rescue is free software that converts WAV files recorded with 
+	programs on JR-200 to CJR format and other formats. Download is
+	<a href="jr2rescue_en.html">here</a>.</p>
+<p>Please check that the file size is correct. Since it checks the file size, it 
+can not be registered unless it is incorrect.</p>
+<p>2. &nbsp;Merge ROM files.</p>
+<p>COPY /B ROM1.BIN+ROM2.BIN ROM.BIN</p>
+<p>&nbsp; It does not work if the order of combining is reversed. Check the file 
+size after joining should be 16384 bytes.</p>
+<p>3. &nbsp;Visual C++ 2015 redistributable 
+package(x86) is required. Please install it if not installed.</p>
+
+<h2 id="kidouhen">Execution</h2>
+<p>1. Extract vjr200_xxx.zip and place VJR200.exe, VJR200_jp. dll, 
+	VJR200_en.dll in the same folder. Even if you only use English, VJR 
+	200_en.dll is necessary. It will not work with VJR 200.exe alone.</p>
+	<p>VJR200.exe&nbsp; Executable file<br>VJR200_jp.dll&nbsp; Japanese 
+	resource file<br>
+	VJR200_en.dll&nbsp; English resource file</p>
+	<p>&nbsp; You can create a folder under Program Files, but other place may 
+	be better. By the way, the setting file is placed under 
+	<span style="font-family:SEGOE UI">AppData\local\FIND_JR\VJR-200\</span> of the user folder.</p>
+<p>2. When starting for the first time, ROM and font file are not 
+	set, so this screen will appear.</p>
+	<p><img alt="" height="324" src="images/init_en.png" width="400"></p>
+<p>3. Set each file in [Tool] - [ROM, FONT file setting] dialog, 
+	end VJR-200 once and re-execute.</p>
+	<p>4. For English keyboard, please change [Option - Emulator - keyboard] 
+	setting to English.</p>
+	<h2>Operation</h2>
+
+<h3>Key Definition</h3>
+	<table style="width: 50%" class="auto-style1" border="1" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td class="auto-style2">GRAPH OFF</td>
+			<td class="auto-style2">Page Down</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">GRAPH ON</td>
+			<td class="auto-style2">Page Up</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">KATAKANA<br>(Japanese letters)</td>
+			<td class="auto-style2">End</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">BREAK</td>
+			<td class="auto-style2">Esc or F11</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+			<img alt="" height="68" src="images/yen_key.jpg" width="69"></td>
+			<td class="auto-style2">Back Slash Key</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+			<img alt="" height="71" src="images/mu_key.jpg" width="70"></td>
+			<td class="auto-style2">F7</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+			<img alt="" height="70" src="images/ro_key.jpg" width="70"></td>
+			<td class="auto-style2">F8</td>
+		</tr>
+	</table>
+<h3>Folders</h3>
+	<table cellpadding="0" cellspacing="0" border="1" class="auto-style1" style="width: 60%">
+		<tr>
+			<td class="auto-style2">Documents</td>
+			<td class="auto-style2">SAVE, MSAVE (CJR, JR2)<br>LLIST, LPRINT (RAW, TXT)<br>Memory 
+			dump (dump.bin)</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">Pictures</td>
+			<td class="auto-style2">LLIST, LPRINT (PNG)</td>
+		</tr>
+	</table>
+	<h3>Status Bar</h3>
+	<p><img alt="" height="40" src="images/status_bar1.png" width="546"></p>
+	<p>It is the name of the file mounted,&nbsp; the state of the remote 
+	terminal (ON / OFF), read / write (R / W), time counter&nbsp; from the left.</p>
+	<p>It is as follows during loading.</p>
+	<p><img alt="" height="34" src="images/status_bar2.png" width="184"></p>
+	<h2>Menu</h2>
+<h3>File</h3>
+	<h4>Mount CJR, JR2</h4>
+	<p>&nbsp; Mount the CJR or JR2 file.</p>
+	<h4>Quick Load CJR</h4>
+	<p>&nbsp; Please be careful as this is a dangerous feature. BASIC, Machine 
+	language files are written directly to memory. Therefore, although it ends 
+	in a moment, inconvenience may occur because it writes to the thing which it 
+	was executing so far. It is recommended to reset before using. Also, you can 
+	not use it when executing LOAD from the program (many commercial products 
+	for JR-200U).</p>
+	<p>It is possible to use LOAD, MLOAD manually as a possible case. Multiple 
+	LOAD, MLOAD can be executed repeatedly.</p>
+	<p>&nbsp; As a common failure, if you manipulate the menu without Ready 
+	immediately after resetting, you will not be able to execute it properly 
+	because it reads in the state that initialization of JR-200 is not 
+	finished.</p>
+	<del><h4>Save CJR</h4>
+	<p>* NOTICE * Currently you can save using SAVE, MSAVE. Those who wish to 
+	save more strictly please use them.</p>
+	<p>&nbsp; This function replaces SAVE and MSAVE. Specify the JR file name in 
+	the dialog, and click "Save BASIC" to save BASIC. To save machine language 
+	and binary data, specify start address, end address and press "Save binary".</p>
+	</del>
+	<h4>Unmount</h4>
+	<p>&nbsp; Unmount the CJR and JR2 files.</p>
+	<h4>New JR2 file</h4>
+	<p>Create a new JR2 file.</p>
+	<h4>JR2 Next<br>JR2 Prev</h4>
+	<p>Cue the next or previous program, data. Only JR2 file is valid.</p>
+	<p>* NOTICE * It may not be possible to cue with special format files.</p>
+	<h4>Go to Top</h4>
+	<p>Move to the beginning of the tape. Both CJR and JR 2 are valid.</p>
+	<h4>Printer Page Feed</h4>
+	<p>When the printer output is set to PNG and "automatic page feed" is turned 
+	off, it is manually output as page feed = PNG file. If nothing is printed, 
+	it will not be output.</p>
+	<h4>Quick Type</h4>
+	<p>&nbsp; It reads a text file containing BASIC code and automatically 
+	inputs it to the emulator. Automatically maximizes the CPU clock only while 
+	it is being input and returns to its original state when finished. Up to 
+	65536 bytes of text file can be read. To stop inputting in the middle, press 
+	Esc.</p>
+	<p>&nbsp; If you get an error during input, please slow down "quick type 
+	speed" in option dialog.</p>
+	<h4>Save Memory Image</h4>
+	<p>Write the image of the memory in the document folder with the name 
+	"dump.bin".</p>
+	<h4>Load Debugging Label File</h4>
+	<p>&nbsp; Load the definition file for converting the address displayed in 
+	the disassembe window into a string. The file must be created in the 
+	following format.</p>
+	<table>
+		<tr>
+			<td>Label Name (within 20 chars)</td>
+			<td>One or more spaces or tabs</td>
+			<td>Address (Hex 0 - FFFF, without "0x")</td>
+		</tr>
+		<tr>
+			<td>KEY_SCAN</td>
+			<td></td>
+			<td>e8cb</td>
+		</tr>
+		<tr>
+			<td>CLS</td>
+			<td></td>
+			<td>ec7f</td>
+		</tr>
+		</table>
+	<h4>Save State, Load State</h4>
+	<p>&nbsp;State data is saved in association with the mounted file. The state file 
+	of abc.cjr is saved up to 9 in the same folder named abc.cjr_0.sta.&nbsp;</p>
+	<p>&nbsp; However, the state data that is not mounted is saved under the 
+	name AppData\Local\FIND_JR\VJR 200\ under the name nomount_0.sta. It is 
+	worth noting that all state savings when using "Quick Load" share data 
+	without mounting. If you want to divide the state file for each game, please 
+	mount -&gt; LOAD, MLOAD without using Quick loading. If you need more than two 
+	files, we recommend that you convert it to JR2 (CJR changes the file to be 
+	linked depending on load order).</p>
+	<h4>Recent Files</h4>
+	<p>The first ten pieces show the files used in "Mount CJR, JR2", the last 
+	ten pieces show the files used in "Quick Load CJR".</p>
+
+<h3>View</h3>
+	<h4>1x, 2x(Std), 3x</h4>
+	<p>&nbsp; Change window size.</p>
+	<h4>Full Screen</h4>
+	<p>&nbsp; It displays in full screen. To cancel full screen Alt + Enter or 
+	double click.</p>
+	<h4>Square Pixel, Video Output Aspect</h4>
+	<p>
+	&nbsp; Since the width of the video output of the JR-200 actual machine has 
+	been reduced by 15%, it is "Video Output Aspect" to reproduce it. However, 
+	pixels may not be integral multiples, which makes it difficult to see. It is 
+	recommended to use 3 times or full screen with smoothing.</p>
+	<h4>Smoothing</h4>
+	<p>&nbsp; Sets whether or not to smooth.</p>
+	<h4>Printer LED, Status Bar</h4>
+	<p>Sets whether or not to display printer LED icon, status bar.</p>
+	<h3>Tool</h3>
+	<h4>Graph Keyboard</h4>
+	<p>&nbsp; Displays a virtual keyboard for entering graph characters.</p>
+	<h4>Romaji Kana Input</h4>
+	<p>&nbsp; During Katakana mode, "Romaji to Katakana transfer input"&nbsp; is enabled. 
+	However, when the program acquires the character code of Katakana with 
+	real-time key scan (PICK, STICK), it will not operate properly. In that case 
+	please input usual Katakana.</p>
+	<h4>Forced Joystick Mode</h4>
+	<p>&nbsp; Make it possible to operate games that only support keyboard 
+	operation with the joypad. Specifically, it converts the input of the joypad 
+	on Windows to the cursor key and up to two keys (space key, X, Z, etc.) 
+	input. Therefore, it is not practical to use software that uses three or 
+	more keys in addition to the cursor keys. Please note that not all games can 
+	be operated.</p>
+	<p>&nbsp; Before using this mode, you first need to assign the appropriate 
+	Joypad buttons to the A and B buttons in the Joypad settings. For the method 
+	of key assignment, refer to option dialog - joypad item.</p>
+	<p>&nbsp; Turning on forced joystick mode is not saved (key assignments are 
+	saved). Please set it each time it starts up.</p>
+	<h4>Debug Window</h4>
+	<p><img alt="" height="468" src="images/debug_window.png" width="562">&nbsp;</p>
+	<p>&nbsp;* Previously, you had to press SET when setting a breakpoint, but 
+	since versioin 1.4.1, changes are automatically applied when you change the 
+	checkbox or press Enter in the edit box (i.e. when the focus is moved).</p>
+	<p>&nbsp;You can step by step while displaying the contents of the 
+	registers of the CPU and peripheral chip MN1271. You can also set 
+	breakpoints. You can temporarily disable a breakpoint by unchecking the 
+	checkbox to the left of the edit box.</p>
+	<p>&nbsp; At the bottom IRQ, you can specify whether to generate TCA - TCF 
+	IRQ during step execution. If you uncheck it, IRQ will not occur only during 
+	step execution. However, even if IRQ is checked, interrupt processing will 
+	not be executed unless the interrupt flag($C81E - $C81F) is set.</p>
+	<p>&nbsp; Even if the debug window is opened, this specification has no 
+	effect during normal execution.</p>
+	<p>&nbsp;&quot;Watch&quot; displays 1-byte or 2-byte area in list form. However, the 
+	value of the watch only changes when stopping at a breakpoint or when you 
+	press the step execution. Therefore, the value may not match the constantly 
+	updated memory window.</p>
+	<p>&nbsp; If you want to delete a watching item, right click and select 
+	context menu &quot;Delete&quot;, or select the item and press 
+	delete key.</p>
+	<h4>Memory Window</h4>
+	<p>&nbsp; Display the memory contents in real time.</p>
+	<h4>Disassemble Window</h4>
+	<p>&nbsp; Disassemble and display the code of the execution position. You 
+	can not move. Sometimes things like NA (***) are displayed in mnemonic.</p>
+	<p><img alt="" height="141" src="images/disasm_sample.png" width="286"></p>
+	<p>&nbsp; Although this is an undefined area of ​​MN1800A in terms of 
+	specification, it is inferred that it is actually executed as an instruction 
+	in parentheses. Since it is a personal analysis to the last, there is a 
+	possibility of being wrong.</p>
+	<h4>FPS, CPU Speed</h4>
+	<p>&nbsp; Display FPS and CPU speed in the title bar.</p>
+	<h4>Set ROM, Font Files</h4>
+	<p>&nbsp; Specify the ROM file and Font file required for execution.</p>
+	<h4>Option</h4>
+	<p><img alt="" height="414" src="images/option_emu_en.png" width="328"></p>
+	<p>* Language</p>
+	<p>&nbsp; Switch the menu and message language to Japanese or English. In 
+	the case of Auto, only Japan is Japanese according to user locale ID (LCID), 
+	otherwise it is English.</p>
+	<p>* Keyboard</p>
+	<p>&nbsp; For English keyboard, please change [Option - Emulator - keyboard] 
+	setting to English.</p>
+	<p>* Refresh Rate</p>
+	<p>&nbsp; Because the VJR-200 operates with reference to VSYNC, if the 
+	vertical synchronization frequency can not be correctly acquired, the 
+	execution speed will be out of order. In that case, uncheck the automatic 
+	setting and manually set it.</p>
+	<p>* Quick Type Speed</p>
+	<p>&nbsp; Quick type Input speed can be set from 10ms to 100ms. Please delay 
+	it if an error occurs.</p>
+	<p>* Raise clock only when SAVE, LOAD</p>
+	<p>&nbsp; Only when SAVE and LOAD, CPU clock is set to 1000% so that it can 
+	process at high speed. When finished, it returns to the original clock.</p>
+	<p>* When recording stops, blank is added (JR2; Required or PRINT#)</p>
+	<p>&nbsp; When recording to the JR2 format, 500 byte blank is added every 
+	time a stop command is issued to the remote terminal. This is necessary to 
+	successfully read PRINT# data. You can uncheck it if you do not use PRINT#. </p>
+	<p>&nbsp;</p>
+	<p><img alt="" height="414" src="images/option_sys_en.png" width="328"></p>
+	<p>* CPU Clock</p>
+	<p>&nbsp; You can specify from 50% to 1000%. There may be inconvenience if 
+	you change too much.</p>
+	<p>* RAM Expansion</p>
+	<p>&nbsp; If you change the ROM of $ A000 to $ BFFF to RAM, it will be in 
+	the same state as when MON was executed.</p>
+	<p>* RAM Initial Pattern</p>
+	<p>　RAM Initial pattern can be selected from the following two types.</p>
+	<p>(1) FF FF 00 00 FF FF 00 00</p>
+	<p>Repeat "FF FF 00 00 FF FF 00 00" and "00 00 FF FF 00 00 FF FF" every 256 
+	bytes from address n000.</p>
+	<p>(2) 00 FF 00 FF 00 FF 00 FF</p>
+	<p>Repeat "00 FF 00 FF 00 FF 00 FF" and "FF 00 FF 00 FF 00 FF 00" every 128 
+	bytes from address n000.</p>
+	<p>&nbsp;</p>
+	<p><img alt="" height="414" src="images/option_snd_en.png" width="328"></p>
+	<p>* Stereo Balance</p>
+	<p>&nbsp; You can set left and right pan for each channel. Since TCF is used 
+	for SOUND statement and warning sound, it is recommended to set it to the 
+	center and set the TCC and TCD to swing left and right.</p>
+	<p>* Buffer Write Interval</p>
+	<p>&nbsp; You can specify the writing interval of DirectSound buffer from 
+	1/100s to 1/50s. The initial value is 1/60s. The smaller the value, the 
+	smaller the delay, but depending on the environment the operation may become 
+	unstable or abnormally terminate.</p>
+	<p>&nbsp; If it does not start normally, delete vjr200.ini (if it exists) and vjr200.xml
+	<span style="font-family:SEGOE UI">	 in	 (user 
+	folder)\AppData\Local\FIND_JR\VJR 200\</span> (all settings are initialized). Or 
+	delete vjr200.ini (if it exists) and change the following item in vjr200.xml</p>
+	<p>&lt;SBufferWriteInterval&gt;60&lt;/SBufferWriteInterval&gt;</p>
+	<p>* Background Play</p>
+	<p>&nbsp;It continues playing even when the window becomes inactive.</p>
+	<p>&nbsp; &nbsp;</p>
+	<p>
+	<img alt="" height="414" src="images/option_prn_en.png" width="328"></p>
+	<p>
+	* Output</p>
+	<p>
+	&nbsp; When set to RAW, data written to the printer output port is output 
+	without being filtered.</p>
+	<p>
+	* Maker</p>
+	<p>
+	Set the printer model. Valid only for RAW output.</p>
+	<p>
+	* Auto Page Feed (PNG only)</p>
+	<p>
+	&nbsp; In the case of PNG output, when there is no data output for 500 ms, 
+	judge it to end and page forward to output PNG file. Then, if problems 
+	occur, or if you want to group hard copies and lists into one image, uncheck 
+	and manually page forward with [File] - [Printer Page Feed].</p>
+	<p>
+	&nbsp;</p>
+	<p>
+	<img alt="" height="414" src="images/option_joypad_en.png" width="328"></p>
+	<p>
+	* Button mode</p>
+	<p>
+	&nbsp; It is recommended that you set it to 1 button except when using 
+	software corresponding to 2 buttons.</p>
+	<p>
+	* Button Assignment</p>
+	<p>
+	&nbsp; It does not need to be set when using with 1 button.</p>
+	<p>
+	* Forced joystick mode</p>
+	<p>
+	&nbsp; When using this mode, you need to assign appropriate Joypad buttons 
+	to A and B buttons of 1P in the Joypad setting. Button mode itself may be 
+	left as 1 button.</p>
+	<p>
+	&nbsp; After assigning, press the A button on the dialog and press the key 
+	on the keyboard you wish to assign. Next, register the B button in the same 
+	way.</p>
+	<p>
+	&nbsp; Forced joystick mode works the same way even if button mode is 1 
+	button or 2 buttons.</p>
+
+<hr>
+<p style="text-align:center">[<a href="index.html">TOP PAGE</a> (Japanese)]</p>
+</div>
+</body>
+</html>
