@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="content-language" content="ja">
+<title>さあ来た！ホームコンピュータ時代 あっとセミグラ</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" media="screen and (max-width:480px)" href="jr_m.css">
+<link rel="stylesheet" media="screen and (min-width:481px)" href="jr.css">
+</head>
+<body>
+<div class="Main">
+<nav>
+<a href="index.html"><img src="images/top.png" width="100" height="50" alt="TOP"></a> 
+</nav>
+
+<h1>あっとセミグラ</h1>
+	<p>旧称　なんでもセミグラ</p>
+
+<p style="text-align:center"><img alt="" height="312" src="images/atsemigra.png" width="400"><br>
+キョウハキケンナヒナノ</p>
+
+<p>　「あっとセミグラ」は任意の画像ファイルを JR-200 のセミグラフィックスで表示するための BASIC リスト、CJR データなどを作成するフリーソフトです。</p>
+	<p>　作例については、「<a href="semigra_grandprix.html">セミグラ・グランプリ</a>」を参照してください。</p>
+
+	<ul>
+		<li>必要環境：　.net Framework 3.5 以上</li>
+	</ul>
+
+<p><strong>※　このプログラムは十分な検証がされていません。ユーザー環境に有害な影響を与えるようなことはしていないつもりですが、いかなる損害が生じても当方は一切補償しません。了解の上ご利用下さい。</strong></p>
+
+<h4>■あっとセミグラ Version 0.3.2</h4>
+<p>2020.4.12　公開</p>
+	<ul>
+		<li>(0.3.1) アプリケーション名を「あっとセミグラ」に改称しました。</li>
+		<li>(0.3.1) 従来のBASICリスト出力に加えて、CJR、BIN ファイル出力を追加しました。CJR では一つの CJR ファイルを MLOAD 
+		することでセミグラフィック画面を表示できます。BIN 出力は テキスト VRAM とアトリビュート VRAM を連結して出力します。</li>
+		<li>(0.3.2) 例外処理に不適切な部分があったため修正しました。</li>
+	</ul>
+		<p>【注意】Ver 1.3.6 までの VJR-200 ではこの CJR を高速ロードすることはできません。Ver 1.3.7 
+		以降で対応しました。</p>
+
+<p>○バイナリ&nbsp;<a href="atsemigra_032.zip">atsemigra_032.zip</a> (10KB)</p>
+	<p><span lang="ja">※　ダウンロードした atsemigra.exe を実行しようとすると「</span><span lang="en-US">Windows </span>
+	<span lang="ja">によって</span><span lang="en-US"> PC </span><span lang="ja">
+	が保護されました。」「実行しない」と表示されます。これは実行プログラムに署名がないせいらしいのだが、署名をつけるための諸々をする気はないので、ここは信用してもらって「詳細情報」－「実行」を選んでもらうしかありません。</span></p>
+	<p>　それがイヤな人は下のソースコードをダウンロードして、ウィルスがいないことを確認して自分でコンパイルしてどうぞ。</p>
+	<p>○ソースコード <a href="atsemigra_032_source.zip">atsemigra_032_source.zip</a> (25KB)</p>
+	<p>Visual Studio 2015 Community でコンパイルできます。</p>
+	<p>●履歴（なんでもセミグラ）</p>
+	<p>Version 0.2.1　2018.12.24　<a href="nangra_021.zip">nangra_021.zip</a> (8KB)</p>
+	<ul>
+		<li>ソースコードがビルドできなくなっていたので修正しました。</li>
+		<li>マウスボタンを押したまま連続で点を打てるようにしまた。</li>
+	</ul>
+	<p>Version 0.1.1　2017.4.19　&nbsp;<a href="nangra_011.zip">nangra_011.zip</a> (6KB)</p>
+	<h3>使い方</h3>
+	<p>1. 画像ファイル（いろんなフォーマットに対応←適当）をウィンドウにドラッグ＆ドロップ。</p>
+	<p>2. 修正したければ適当に修正。</p>
+	<p>3. 以下の内容でデータ作成。</p>
+	<p>「BIN出力」テキストVRAM、アトリビュートVRAMの内容を連結して出力。</p>
+	<p>「CJR出力」MLOAD するための CJR ファイル作成。</p>
+	<p>「BASIC出力」クイックタイプ用のテキストファイルを作成。</p>
+
+<hr>
+<p style="text-align:center">［<a href="soft.html">SOFTWARE TOP PAGE</a>］</p>
+<p style="text-align:center">［<a href="index.html">TOP PAGE</a>］</p>
+</div>
+</body>
+</html>

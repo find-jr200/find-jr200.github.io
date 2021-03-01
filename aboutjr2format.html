@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="content-language" content="ja">
+<title>さあ来た！ホームコンピュータ時代 JR2フォーマットについて</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" media="screen and (max-width:480px)" href="jr_m.css">
+<link rel="stylesheet" media="screen and (min-width:481px)" href="jr.css">
+<style type="text/css">
+th {
+	background-color: #8080f0;
+}
+.auto-style2 {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="Main">
+<nav>
+<a href="index.html"><img src="images/top.png" width="100" height="50" alt="TOP"></a> 
+</nav>
+
+<h1>JR2(JR-200 Raw)フォーマットについて</h1>
+	<p>　JR2 フォーマットは JR-200 が MN1271 のレジスタ $C80D 
+	に書き込む値をそのまま記録するフォーマットです。ちなみに名前の由来は <strong>JR</strong>-200 <strong>R</strong>aw 
+	→ JRR → JR^2 → JR2 というシャレです（意味不明）。</p>
+	<p>&nbsp;&nbsp;特徴</p>
+	<ul>
+		<li>複数のプログラム、データをまとめられるので自動ロードのソフトの扱いが簡単になる</li>
+		<li>テープに記録する信号に近い状態なので、特殊フォーマットに対応できるかもしれない</li>
+		<li>PRINT#, INPUT# が利用可能</li>
+	</ul>
+	<p>
+	　以上の点を考えてこのフォーマットにしました。<strong>使いたくない人は PRINT#, INPUT# 以外は CJR のみでも運用できるので問題ありませんし、今後 CJR 
+	のサポートを切るつもりもありません。</strong>CJR 
+	と JR2 の比較を表にしておきます。</p>
+<table>
+		<tr>
+			<th>&nbsp;</th>
+			<th>特徴</th>
+			<th>ファイルサイズ</th>
+			<th>サイズ上限</th>
+			<th>1ファイルに</th>
+			<th>PRINT#</th>
+		</tr>
+		<tr>
+			<td>CJR</td>
+			<td>実際のプログラム、データを記録</td>
+			<td>小さい</td>
+			<td>64KB<br>(VJR-200の制約)</td>
+			<td>1プログラム、または1データのみ</td>
+			<td>非対応</td>
+		</tr>
+		<tr>
+			<td>JR2</td>
+			<td>記録波形に相当する値を記録</td>
+			<td>大きい</td>
+			<td>4GB?<br>（試してないけど）</td>
+			<td>複数のプログラム、データ格納可</td>
+			<td>対応</td>
+		</tr>
+	</table>
+
+	<p>具体的なファイルフォーマットは以下の通りです。0～15 byte までがヘッダブロック、16 byte 以降がデータブロックです。</p>
+	<table>
+		<tr>
+			<th>Offset</th>
+			<th style="width: 10%">0</th>
+			<th style="width: 10%">1</th>
+			<th style="width: 10%">2</th>
+			<th style="width: 10%">3</th>
+			<th style="width: 10%">4</th>
+			<th style="width: 10%">5</th>
+			<th style="width: 10%">6</th>
+			<th style="width: 10%">7</th>
+		</tr>
+		<tr>
+			<td class="auto-style2">Value</td>
+			<td style="width: 10%" class="auto-style2">'J' (0x4a)</td>
+			<td style="width: 10%" class="auto-style2">'R'(0x52)</td>
+			<td style="width: 10%" class="auto-style2">'2'(0x32)</td>
+			<td style="width: 10%" class="auto-style2">'\0' (0)</td>
+			<td style="width: 10%" class="auto-style2">1</td>
+			<td style="width: 10%" class="auto-style2">0</td>
+			<td style="width: 10%" class="auto-style2">0x10</td>
+			<td style="width: 10%" class="auto-style2">0</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">description</td>
+			<td colspan="4" style="width: 10%" class="auto-style2">file type</td>
+			<td class="auto-style2">major ver</td>
+			<td class="auto-style2">minor Ver</td>
+			<td colspan="2" class="auto-style2">pointer to 
+			data block</td>
+		</tr>
+		<tr>
+			<th>Offset</th>
+			<th>8</th>
+			<th>9</th>
+			<th>10</th>
+			<th>11</th>
+			<th>12</th>
+			<th>13</th>
+			<th>14</th>
+			<th>15</th>
+		</tr>
+		<tr>
+			<td class="auto-style2">Value</td>
+			<td class="auto-style2">0</td>
+			<td class="auto-style2">0</td>
+			<td class="auto-style2">0</td>
+			<td class="auto-style2">0</td>
+			<td class="auto-style2">0</td>
+			<td class="auto-style2">0</td>
+			<td class="auto-style2">0</td>
+			<td class="auto-style2">0</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">description</td>
+			<td colspan="8" class="auto-style2">reserved</td>
+		</tr>
+		<tr>
+			<th>Offset</th>
+			<th>16</th>
+			<th>17</th>
+			<th>18</th>
+			<th>19</th>
+			<th>20</th>
+			<th>21</th>
+			<th>22</th>
+			<th>23</th>
+		</tr>
+		<tr>
+			<td class="auto-style2">description</td>
+			<td colspan="8" class="auto-style2">data block</td>
+		</tr>
+	</table>
+	<p>　データブロックの先頭を表す 6,7 バイトはリトルエンディアンで 
+	2byte。今のところ変更する予定はありませんが、万一ヘッダが足りなくなった時のために保険をかけておきます。</p>
+	<p>　また、デフォルトでは SAVE, MSAVE, PRINT# 時にリモート端子が停止になるたびに末尾に 500 バイトの0を付加しています。これは 
+	PRINT# したデータを INPUT# で読み込むときに、読み込みのタイミングでブランクがないと正常に読み込めなくなるためです。本当は SAVE, 
+	MSAVE 時には付加不要なものですが、エミュレータから両者を区別するのは困難なため、すべてのケースで付加します。</p>
+	<p>　なので、自分は絶対に PRINT# なんか使わないという人は、オプション－エミュレータ の「CMT : 
+	録音停止時、ブランクを付加する」のチェックを外すとファイルサイズを節約できます。ただしこの状態で PRINT# したデータは INPUT# 
+	時にエラーが出て読み込めなくなるので注意してください。</p>
+
+<hr>
+<p style="text-align:center">[<a href="vjr200.html">VJR-200 TOP</a>]</p>
+<p style="text-align:center">［<a href="index.html">TOP PAGE</a>］</p>
+</div>
+</body>
+</html>

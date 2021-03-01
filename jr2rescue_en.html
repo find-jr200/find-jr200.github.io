@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="content-language" content="en">
+<title>JR-200 WAVtoCJR,etc Converter JR2RESCUE</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" media="screen and (max-width:480px)" href="jr_m.css">
+<link rel="stylesheet" media="screen and (min-width:481px)" href="jr.css">
+<style type="text/css">
+.auto-style1 {
+	text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<div class="Main">
+<nav>
+<a href="index.html"><img src="images/top.png" width="100" height="50" alt="TOP"></a> 
+</nav>
+<h1>JR2Rescue</h1>
+
+<p>&nbsp;JR2Rescue is free software that converts WAV files recorded with 
+programs on JR-200 to CJR format and other formats.</p>
+
+	<ul>
+		<li>Operation Environment : .net Framework 3.5 or later</li>
+		<li>Readable WAV file : sampling frequency 22kHz-48kHz, quantize 8bit or 16bit, 
+		channel 1 or 2.&nbsp; liner PCM only.</li>
+	</ul>
+	<p>*<strong> This program has not been fully tested. I do not intend to have 
+	a harmful effect on the user environment, but I will not compensate for any 
+	damage. Please use it after understanding.</strong></p>
+
+<h4>* Latest version 0.4.1</h4>
+	<p>&nbsp;2020.8.15 <a href="JR2Rescue0_4_1.zip">JR2Rescue0_4_1.zip</a> (47KB)</p>
+
+<h3>File Composition</h3>
+
+	<p>JR2Rescue.exe - Executable file</p>
+	<p>ja (folder) - Japanese resource folder. <strong>If You use JR2Rescue in 
+	English environment, remove this folder</strong>.</p>
+
+<h2>Operation</h2>
+
+<h3>1. WAV to CJR</h3>
+
+<p>&nbsp; Convert wav file to CJR, BIN, motrola S format.</p>
+
+<p><img alt="" height="357" src="images/jr2r_1en.png" width="497"></p>
+	<p>1. Specify the input WAV file and press "Read WAV". If the dialog 
+	"failed" appears, WAV analysis has failed, so try changing the saturation 
+	and threshold levels.</p>
+	<p>2. If "Read WAV" is successful, the "Write File" button will be enabled. 
+	Select the output format and click the "Write File" button. You can also 
+	write different formats in quick succession.&nbsp;</p>
+	<p>* &quot;Mot.S&quot; is Motorola S format. If you choose this format, specify start 
+	address ( 0 - ffff).</p>
+
+<h3>2. CJR to WAV</h3>
+
+<p>&nbsp; Convert CJR file to WAV file.</p>
+
+<p><img alt="" height="357" src="images/jr2r_2en.png" width="497"></p>
+	<p>Please specify the source file as the input CJR file and the output file 
+	as the WAV file, select 600baud / 
+	2400baud and press "Convert to WAV"</p>
+
+<p>* Notice</p>
+
+<p>&nbsp; The output WAV format is 22KHz, 8bit, monaural fixed.</p>
+
+<h3>3. JR2toWAV</h3>
+	<p>Convert JR2 to WAV</p>
+	<p><img alt="" height="357" src="images/jr2r_3en.png" width="497"></p>
+	<p>Please specify the input file as the input CJR file and the output file 
+	as the WAV file, press "Convert to WAV"</p>
+
+<p>* Notice</p>
+
+<p>&nbsp; The output WAV format is 22KHz, 8bit, monaural fixed.&nbsp;</p>
+	<h3>4. CJR to JR2</h3>
+	<p>&nbsp; Convert CJR file to JR2 file.</p>
+	<p><img alt="" height="357" src="images/jr2r_4en.png" width="497"></p>
+	<p>* What's JR2 Format</p>
+	<p>&nbsp; JR2 format is a format in which the value that JR-200 writes to 
+	MN1271's register $C80D is recorded as is. This format is VJR-200 original.</p>
+	<p>* About output file</p>
+	<p>When you specify a file that exist, append to the end.</p>
+	<p>When you specify a file that does not exist, create new file.</p>
+	<p>&nbsp; If you want to create a new one, enter the full path in the text 
+	box directly, or press "Browse" to select a folder and enter the file name 
+	to create in the file name box.</p>
+	<p>* Add blank</p>
+	<p>&nbsp; "Add blank" is necessary for those that cannot be loaded normally 
+	without adding a blank (e.g. Swashbuckler) .&nbsp; When you convert these 
+	games to JR2 format, specify at least 1000 to 1500 bytes or more blanks.</p>
+	<h3>5. Multi CJR</h3>
+	<p>* What's Multi CJR</p>
+	<p>&nbsp; Multi CJR file is the file which merge separated area (e.g. text 
+	vram and attribute vram, machine language and user defined character area). 
+	<span class="auto-style1">However, you can't merge BASIC program (SAVEd file) and Machine 
+	Language(MSAVEd file)</span>. You can only merge MSAVEd files.</p>
+	<p><img alt="" height="357" src="images/jr2r_5en.png" width="497"></p>
+	<p>1. Drag and drop the MSAVE CJR file to the list box. To delete a file, 
+	select it and press the Delete key. You can drop multiple files, but a BASIC 
+	file (=saved file) will result in an error when writing.</p>
+	<p>2. Specify the multi CJR file name and JR file name, and then click Write 
+	Multi CJR File.</p>
+	<h3>6. etc</h3>
+
+<p>1. Convert memory image file to BASIC CJR file.</p>
+
+<p>2. Convert BIN file to CJR file.</p>
+
+<p><img alt="" height="357" src="images/jr2r_6en.png" width="497"></p>
+
+<hr>
+<p style="text-align:center">[<a href="vjr200_en.html">VJR-200 PAGE</a>]</p>
+<p style="text-align:center">[<a href="index.html">TOP PAGE</a>]</p>
+</div>
+</body>
+</html>

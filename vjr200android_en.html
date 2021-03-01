@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="content-language" content="en">
+<title>VJR-200 for Android</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" media="screen and (max-width:480px)" href="jr_m.css">
+<link rel="stylesheet" media="screen and (min-width:481px)" href="jr.css">
+<style type="text/css">
+.auto-style7 {
+	vertical-align: middle;
+}
+.auto-style8 {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+</style>
+</head>
+<body>
+<div class="Main">
+<nav>
+<a href="index.html"><img src="images/top.png" width="100" height="50" alt="TOP"></a> 
+</nav>
+<h1>VJR-200 for Android</h1>
+	<p>&nbsp; VJR-200 for Android is an emulator of Panasonic JR-200 (Japanese 
+	model). However, some of JR-200U software work with VJR-200. English menu 
+	and message are available.</p>
+	<p>&nbsp; VJR-200 for Windows is <a href="vjr200_en.html">here</a>.&nbsp;&nbsp;</p>
+	<p>
+	<img alt="" class="auto-style7" height="400" src="images/vjr200a_en1.png" width="189">
+	<img alt="" class="auto-style7" height="189" src="images/vjr200a_en2.png" width="400"></p>
+	<p>&nbsp; JR-200 emulator running on Android 4.1 or above (Android 4.4 or 
+	above is 
+	recommended).<br>The vertical screen is intended to be used alone, the 
+	horizontal screen is intended to be used in combination with an external 
+	keyboard, or used for games.</p>
+	<p><a href="#environment">Operation Environment</a><br><a href="#download">Download</a><br>
+	<a href="#preparation">Preparation</a><br><a href="#execution">Execution</a><br>
+	<a href="#operation">Operation</a><br><a href="#directplayer">DirectPlayer</a><br>
+	<a href="#notes">Notes</a></p>
+	<hr style="width:50%">
+	<p>&nbsp; The following software was used for VJR-200 for Windows based on the 
+	bsd 3 clause license.</p>
+<p>MAME (http://www.mame.net/)<br>copyright-holders: Nicola Salmoria, Aaron 
+Giles</p>
+	<p>cereal (https://uscilab.github.io/cereal/) <a href="license_cereal.txt">
+	LICENSE</a><br>copyright-holders: Randolph 
+	Voorhies, Shane Grant</p>
+	<p>Icons from FLAT ICON DESIGN (http://flat-icon-design.com/)</p>
+
+<h3 id="environment">Operation Environment</h3>
+	<p>&nbsp; Android 4.1 or above (confirmed with version 4.4, 5.1, 6.0, 10.0 on the actual device)</p>
+	<p>&nbsp; Below Android 4.4, some functions may be limited, and performance 
+	may be degraded in game mode.</p>
+	<p>&nbsp; Permission for installation or execution is storage read/write and 
+	vibration and audio recording. If you refuse storage read/write, you cannot execute. 
+	Unless you use Direct Player, you can refuse audio recording.</p>
+	<p>&nbsp; The update simply installs over the new apk file. Settings should 
+	be inherited as they are.</p>
+	<p>&nbsp; Compatible with Bluetooth and USB external keyboards (Japanese 
+	keyboard only). If you are having difficulty entering, try changing the 
+	Japanese input software (Google Japanese Input -&gt; Gboard, etc.).</p>
+	<p>&nbsp; Not compatible with game controllers.&nbsp;</p>
+<h3 id="download">Download</h3>
+	<p>* VJR-200 for Android is not an app registered on Google Play. </p>
+	<p><strong>* This program has not been fully verified. I do not intend to 
+	have a harmful effect on the user environment, but I will not compensate for 
+	any damage. Please use it after understanding.</strong></p>
+	<p>The Android version source code will not be released.</p>
+	<h4>2021.1.31 Version 0.6.3</h4>
+	<p>* APK Binary <a href="vjr200-0.6.3.apk">vjr200-0.6.3.apk</a> (3,995KB)</p>
+	<h2 id="preparation">Preparation</h2>
+	<p>&nbsp; Prepare the ROM and font files and transfer them to your 
+	smartphone along with the CJR and JR2 files you want to execute. As there 
+	are restrictions on the transfer destination, refer to the notes.</p>
+
+<h2 id="execution">Execution</h2>
+	<ol>
+		<li>&nbsp;When you first start up, the white screen appears because the ROM 
+		and font files are not set.</li>
+		<li>&nbsp;Select "File Setting" from the menu, set each file in the dialog, 
+		then kill the task once and restart.<br>By the way, the "data directory" 
+		is the save destination when SAVE or MSAVE, and the directory that opens 
+		first in the file dialog.</li>
+		<li>When the JR-200 startup screen appears, as you like it.</li>
+	</ol>
+<h2 id="operation">Operation</h2>
+	<p><img alt="" height="400" src="images/VJR200a_menu_en.png" width="371"></p>
+	<p>&nbsp; Unlike the Windows version, the BREAK key when using an external 
+	keyboard is assigned to F11. This is because the Esc key has been used by 
+	the OS. </p>
+	<p>&nbsp; If you have a type that can be switched for each OS, such as a 
+	Bluetooth keyboard, try using Windows settings. With the Android settings, 
+	the operation of the function keys may not be what you intended.</p>
+	<p>* * * * *</p>
+	<p>VJR-200 for Android has 4 modes. Each transition is as follows.</p>
+	<p><img alt="" height="376" src="images/vjr200a_mode_en.png" width="650"></p>
+	<h2 id="directplayer">Direct Player</h2>
+
+	<p>
+	<img alt="" class="auto-style8" height="400" src="images/directplayer_en.png" style="float: left" width="189"> 
+	Direct Player is a utility that can play CJR and JR2 files directly without 
+	converting them to WAV files. It has nothing to do with the emulator.</p>
+	<p>
+	&nbsp; <strong>To use the direct player, you must give it the permission of "Record Voice"</strong>. This is the permission 
+	to display the 
+	playback waveform (Visualizer), not to record your sound of life.</p>
+	<p>
+	&nbsp; Be sure to try setting the volume to maximum. It seems that there are 
+	still many models that cannot obtain the required volume, but in that case, 
+	there is no choice but to use a headphone amplifier.</p>
+	<p>
+	Turn on Blank Extension to extend the blanks recorded in the JR2 file to 5 
+	seconds. Use this when a blank recorded in advance cannot be loaded 
+	normally. However, it cannot be expanded unless blanks are recorded in the 
+	original file. In that case, recreate the JR2 file.</p>
+	<p>
+	&nbsp;</p>
+	<p>
+	&nbsp;</p>
+	<p>
+	&nbsp;</p>
+<h2 id="notes">Notes</h2>
+	<ul>
+		<li>For Android 4.4 or above, JR2 files placed on the SD card are 
+		read-only (no problem because CJR cannot be added from the beginning). 
+		Depending on the model, some may be read-only even if it is less than 
+		4.3 (it will be displayed when mounting).</li>
+		<li>It is not possible to save the state while mounting CJR, JR2 on the 
+		SD card because the state file cannot be created in the same directory.</li>
+		<li>I recommend deploying the files in the internal storage.</li>
+		<li><strong>If you dismiss the activity with "Back", the emulator will be 
+		reset and not restored</strong>. This is because if you use "Back", the 
+		onSaveInstance and onRestoreInstance events do not occur. If you want to 
+		restore, use "Home" or "Task History". </li>
+	</ul>
+
+
+<hr>
+<p style="text-align:center">[<a href="soft.html">SOFTWARE TOP PAGE</a>]</p>
+<p style="text-align:center">[<a href="index.html">TOP PAGE</a>]</p>
+</div>
+</body>
+</html>
