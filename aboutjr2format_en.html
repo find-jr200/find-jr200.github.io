@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="content-language" content="en">
+<title>About JR2 Fomrat</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" media="screen and (max-width:480px)" href="jr_m.css">
+<link rel="stylesheet" media="screen and (min-width:481px)" href="jr.css">
+<style type="text/css">
+th {
+	background-color: #8080f0;
+}
+.auto-style2 {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="Main">
+<nav>
+<a href="index.html"><img src="images/top.png" width="100" height="50" alt="TOP"></a> 
+</nav>
+
+<h1>About JR2(JR-200 Raw) Format</h1>
+	<p>&nbsp; JR2 format is a format in which the value that JR-200 writes to 
+	MN1271's register $C80D is recorded as is. This format is VJR-200 original.</p>
+	<p>&nbsp;&nbsp;Features</p>
+	<ul>
+		<li>Multiple programs and data can be grouped together, making it easier 
+		to handle auto-loading software.</li>
+		<li>Since the signal is similar to that recorded on tape, it may be able 
+		to handle special formats.</li>
+		<li>PRINT#, INPUT# are available</li>
+	</ul>
+<table>
+		<tr>
+			<th style="height: 36px"></th>
+			<th style="height: 36px">Contents</th>
+			<th style="height: 36px">File Size</th>
+			<th style="height: 36px">Size Limit</th>
+			<th style="height: 36px">per file</th>
+			<th style="height: 36px">PRINT#</th>
+		</tr>
+		<tr>
+			<td>CJR</td>
+			<td>records actual program or data</td>
+			<td>small</td>
+			<td>64KB<br>(limited by VJR-200)</td>
+			<td>1 program&nbsp; or 1 data</td>
+			<td>not available</td>
+		</tr>
+		<tr>
+			<td>JR2</td>
+			<td>records the value corresponding to the recorded waveform</td>
+			<td>large</td>
+			<td>4GB?<br></td>
+			<td>multiple programs and data</td>
+			<td>available</td>
+		</tr>
+	</table>
+
+	<p>&nbsp; The specific file formats are as follows. The header block is from 
+	0 to 15 bytes, and the data block is from 16 bytes.</p>
+	<table>
+		<tr>
+			<th>Offset</th>
+			<th style="width: 10%">0</th>
+			<th style="width: 10%">1</th>
+			<th style="width: 10%">2</th>
+			<th style="width: 10%">3</th>
+			<th style="width: 10%">4</th>
+			<th style="width: 10%">5</th>
+			<th style="width: 10%">6</th>
+			<th style="width: 10%">7</th>
+		</tr>
+		<tr>
+			<td class="auto-style2">Value</td>
+			<td style="width: 10%" class="auto-style2">'J' (0x4a)</td>
+			<td style="width: 10%" class="auto-style2">'R'(0x52)</td>
+			<td style="width: 10%" class="auto-style2">'2'(0x32)</td>
+			<td style="width: 10%" class="auto-style2">'\0' (0)</td>
+			<td style="width: 10%" class="auto-style2">1</td>
+			<td style="width: 10%" class="auto-style2">0</td>
+			<td style="width: 10%" class="auto-style2">0x10</td>
+			<td style="width: 10%" class="auto-style2">0</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">description</td>
+			<td colspan="4" style="width: 10%" class="auto-style2">file type</td>
+			<td class="auto-style2">major ver</td>
+			<td class="auto-style2">minor Ver</td>
+			<td colspan="2" class="auto-style2">pointer to 
+			data block</td>
+		</tr>
+		<tr>
+			<th>Offset</th>
+			<th>8</th>
+			<th>9</th>
+			<th>10</th>
+			<th>11</th>
+			<th>12</th>
+			<th>13</th>
+			<th>14</th>
+			<th>15</th>
+		</tr>
+		<tr>
+			<td class="auto-style2">Value</td>
+			<td class="auto-style2">0</td>
+			<td class="auto-style2">0</td>
+			<td class="auto-style2">0</td>
+			<td class="auto-style2">0</td>
+			<td class="auto-style2">0</td>
+			<td class="auto-style2">0</td>
+			<td class="auto-style2">0</td>
+			<td class="auto-style2">0</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">description</td>
+			<td colspan="8" class="auto-style2">reserved</td>
+		</tr>
+		<tr>
+			<th>Offset</th>
+			<th>16</th>
+			<th>17</th>
+			<th>18</th>
+			<th>19</th>
+			<th>20</th>
+			<th>21</th>
+			<th>22</th>
+			<th>23</th>
+		</tr>
+		<tr>
+			<td class="auto-style2">description</td>
+			<td colspan="8" class="auto-style2">data block</td>
+		</tr>
+	</table>
+	<p>&nbsp;&nbsp; Offset 6 and 7 bytes represent the beginning of the data 
+	block by little endian.</p>
+	<p>&nbsp; By default, 500 bytes 0 is appended to the end of 
+	each time the remote terminal is stopped during SAVE, MSAVE, or PRINT#. This 
+	is because when reading PRINT# data with INPUT#, if there are no blanks at 
+	the timing of reading, the data cannot be read normally. It is not really 
+	necessary to add it when using SAVE or MSAVE, but since it is difficult to 
+	distinguish between them from the emulator, it is added in all cases. </p>
+	<p>&nbsp; So, if you never use PRINT#, you can save the file size by 
+	unchecking "Option dialog - Emulatoer - CMT : When recording stops, blank is 
+	added".&nbsp; Note, however, that data PRINT# in this state will cause an 
+	error during INPUT# and cannot be read.<br></p>
+
+<hr>
+<p style="text-align:center">[<a href="vjr200_en.html">VJR-200 TOP</a>]</p>
+<p style="text-align:center">［<a href="index.html">TOP PAGE</a>］</p>
+</div>
+</body>
+</html>
