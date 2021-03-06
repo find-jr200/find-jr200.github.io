@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -7,6 +7,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link rel="stylesheet" media="screen and (max-width:480px)" href="jr_m.css">
 <link rel="stylesheet" media="screen and (min-width:481px)" href="jr.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BT9ZXDNE9V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BT9ZXDNE9V');
+</script>
 </head>
 <body>
 <div class="Main">
@@ -137,6 +145,12 @@
 	<h4>ローマ字カナ入力</h4>
 	<p>　カナモード時、ローマ字入力を可能にします。ただしプログラムがカナのキャラクターコードをリアルタイムキースキャン（PICK, 
 	STICK）で取得している場合は、正しく動作しません。その場合は通常のカナ入力にしてください。</p>
+	<h4>マクロ</h4>
+	<p>　10個までの定型文を登録し、1, 2, 3, …… 9, 0 
+	までのキー（テンキー不可）を押すか、項目をダブルクリックすることで入力できます。リターンキーは \r 
+	で表し、複数行入力することもできます（最大80文字）。半角カタカナも入力できますが、JR-200 
+	で使える文字かどうかのチェックはしていないので全角文字などを入力しないように注意してください。</p>
+	<p><img alt="" height="266" src="images/macro.png" width="427"></p>
 	<h4>強制ジョイスティックモード</h4>
 	<p>
 	　キーボード操作にしか対応していないゲームを、ジョイパッドで操作できるようにします。具体的には Windows 上のジョイパッドの入力を、カーソルキーと、二つまでのキー（スペースキー、あるいは X 
