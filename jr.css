@@ -3,6 +3,7 @@ h1 {color:white; background:blue; padding-left: 10px; padding-top: 7px; padding-
 h2 {color:white; background:gray; padding-left: 10px; margin-right:0%;  padding-top: 5px; padding-bottom: 2px;}
 h3 {color:white; background:green; margin-right:0%; padding-left: 10px; font-size:12pt; padding-top: 3px; padding-bottom: 2px;}
 h4 {margin-right:5%; padding-left: 10px;}
+h5 {font-size:12pt; margin-Left:70px;margin-right:0%;}
 p, table, li, .Left, .Center{margin-Left:70px;margin-right:0%;}
 table{border-style: solid;border-width: 2px;border-collapse: collapse;margin-Left:70px;margin-right:0%;}
 th,td,tr{border-style: solid;border-width: 1px;margin-Left:70px;margin-right:0%;}

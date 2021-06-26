@@ -55,11 +55,11 @@
 	<p>Windows Vista SP2 or later</p>
 	<p>Because it uses Direct2D, it does not work on Windows XP.</p>
 	<h3>Download</h3>
-	<p>2021.3.7 Version 1.5.1</p>
+	<p>2021.6.27 Version 1.5.2</p>
 	<p>* Binary 
-	<a href="https://github.com/find-jr200/VJR200forWindows/releases/download/V1.5.1/VJR200_151.zip">
-	https://github.com/find-jr200/VJR200forWindows/releases/download/V1.5.1/VJR200_151.zip</a> 
-	(191KB)</p>
+	<a href="https://github.com/find-jr200/VJR200forWindows/releases/download/V1.5.2/VJR200_152.zip">
+	https://github.com/find-jr200/VJR200forWindows/releases/download/V1.5.2/VJR200_152.zip</a> 
+	(194KB)</p>
 	<p>* Source code</p>
 	<p><a href="https://github.com/find-jr200/VJR200forWindows">
 	find-jr200/VJR200forWindows (github.com)</a></p>
@@ -69,6 +69,12 @@
 	Visual Studio.</p>
 	<p><a href="vjr200_history.html">former version</a> (Japanese page)</p>
 	<h4>Changes</h4>
+	<p>2021.6.27 Version 1.5.2</p>
+	<ul>
+		<li>Added jump history and the break function when reading / writing the 
+		specified memory area to the debugging window.</li>
+		<li>Swapped the positions of the breakpoint text boxes and checkboxes.</li>
+	</ul>
 	<p>2021.3.7 Version 1.5.1</p>
 	<ul>
 		<li>A macro function has been added (Tool - Macro menu). Up to 10 fixed phrases can be 
@@ -317,20 +323,59 @@ package(x86) is required. Please install it if not installed.</p>
 	<p>&nbsp; Turning on forced joystick mode is not saved (key assignments are 
 	saved). Please set it each time it starts up.</p>
 	<h4>Debug Window</h4>
-	<p><img alt="" height="468" src="images/debug_window.png" width="562">&nbsp;</p>
+	<p><img alt="" height="468" src="images/debugw.png" width="670">&nbsp;</p>
 	<p>&nbsp;* Previously, you had to press SET when setting a breakpoint, but 
 	since versioin 1.4.1, changes are automatically applied when you change the 
 	checkbox or press Enter in the edit box (i.e. when the focus is moved).</p>
+	<h5>Break Point</h5>
 	<p>&nbsp;You can step by step while displaying the contents of the 
 	registers of the CPU and peripheral chip MN1271. You can also set 
 	breakpoints. You can temporarily disable a breakpoint by unchecking the 
 	checkbox to the left of the edit box.</p>
-	<p>&nbsp; At the bottom IRQ, you can specify whether to generate TCA - TCF 
+	<h5>&nbsp;IRQ</h5>
+	<p>&nbsp;At the bottom IRQ, you can specify whether to generate TCA - TCF 
 	IRQ during step execution. If you uncheck it, IRQ will not occur only during 
 	step execution. However, even if IRQ is checked, interrupt processing will 
 	not be executed unless the interrupt flag($C81E - $C81F) is set.</p>
 	<p>&nbsp; Even if the debug window is opened, this specification has no 
 	effect during normal execution.</p>
+	<h5>Read/Write Break</h5>
+	<p>&nbsp; When the specified address (range specification is possible) is 
+	read/written, it breaks. The address of the read/write instruction is 
+	displayed in "Break Address". "R/W Address" has "R" for Read and "W" for 
+	Write after the address.</p>
+	<p>&nbsp; Check the "R" checkbox if you want to break when reading, and 
+	check the "W" checkbox if you want to break when writing.</p>
+	<p>&nbsp; Specify the range as follows: A &lt;= B</p>
+	<p>
+	<table style="width: 50%">
+		<tr>
+			<th>FROM</th>
+			<th>TO</th>
+			<th>&nbsp;</th>
+		</tr>
+		<tr>
+			<td>A</td>
+			<td>(blank)</td>
+			<td>OK</td>
+		</tr>
+		<tr>
+			<td>(blank)</td>
+			<td>A</td>
+			<td>ERROR</td>
+		</tr>
+		<tr>
+			<td>A</td>
+			<td>B</td>
+			<td>OK</td>
+		</tr>
+		<tr>
+			<td>B</td>
+			<td>A</td>
+			<td>ERROR</td>
+		</tr>
+	</table>
+	<h5>Watch</h5>
 	<p>&nbsp;&quot;Watch&quot; displays 1-byte or 2-byte area in list form. However, the 
 	value of the watch only changes when stopping at a breakpoint or when you 
 	press the step execution. Therefore, the value may not match the constantly 
@@ -338,13 +383,19 @@ package(x86) is required. Please install it if not installed.</p>
 	<p>&nbsp; If you want to delete a watching item, right click and select 
 	context menu &quot;Delete&quot;, or select the item and press 
 	delete key.</p>
+	<h5>Jump History</h5>
+	<p>Display the jump history. For NMI and IRQ, "i" is displayed to the right 
+	of the address.</p>
 	<h4>Memory Window</h4>
 	<p>&nbsp; Display the memory contents in real time.</p>
 	<h4>Disassemble Window</h4>
 	<p>&nbsp; Disassemble and display the code of the execution position. You 
-	can not move. Sometimes things like NA (***) are displayed in mnemonic.</p>
+	can not move. </p>
+	<p><img alt="" height="166" src="images/disasm1.png" width="286"></p>
+	<p>The first line is the address of the previous execution, and the 
+	underlined line is the next address to be executed.</p>
 	<p><img alt="" height="141" src="images/disasm_sample.png" width="286"></p>
-	<p>&nbsp; Although this is an undefined area of ​​MN1800A in terms of 
+	<p>&nbsp; Sometimes things like NA (***) are displayed in mnemonic. Although this is an undefined area of ​​MN1800A in terms of 
 	specification, it is inferred that it is actually executed as an instruction 
 	in parentheses. Since it is a personal analysis to the last, there is a 
 	possibility of being wrong.</p>
