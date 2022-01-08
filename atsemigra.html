@@ -26,8 +26,9 @@
 <h1>あっとセミグラ</h1>
 	<p>旧称　なんでもセミグラ</p>
 
-<p style="text-align:center"><img alt="" height="312" src="images/atsemigra.png" width="400"><br>
-キョウハキケンナヒナノ</p>
+<p style="text-align:center">
+<img alt="" height="348" src="images/atsemigra_title.png" width="400"><br>
+	</p>
 
 <p>　「あっとセミグラ」は任意の画像ファイルを JR-200 のセミグラフィックスで表示するための BASIC リスト、CJR データなどを作成するフリーソフトです。</p>
 	<p>　作例については、「<a href="https://jr200.web.fc2.com/semigra_grandprix.html">セミグラ・グランプリ</a>」を参照してください。</p>
@@ -38,17 +39,14 @@
 
 <p><strong>※　このプログラムは十分な検証がされていません。ユーザー環境に有害な影響を与えるようなことはしていないつもりですが、いかなる損害が生じても当方は一切補償しません。了解の上ご利用下さい。</strong></p>
 
-<h4>■あっとセミグラ Version 0.3.2</h4>
-<p>2020.4.12　公開</p>
+<h4>■あっとセミグラ Version 0.4.1</h4>
+	<p>2022.1.8 Version 0.4.1 公開</p>
 	<ul>
-		<li>(0.3.1) アプリケーション名を「あっとセミグラ」に改称しました。</li>
-		<li>(0.3.1) 従来のBASICリスト出力に加えて、CJR、BIN ファイル出力を追加しました。CJR では一つの CJR ファイルを MLOAD 
-		することでセミグラフィック画面を表示できます。BIN 出力は テキスト VRAM とアトリビュート VRAM を連結して出力します。</li>
-		<li>(0.3.2) 例外処理に不適切な部分があったため修正しました。</li>
+		<li>ファイル読込時の RGB それぞれのしきい値を調整できるようにしました。</li>
+		<li>ガイドラインを表示できるようにしました。</li>
 	</ul>
-		<p>【注意】Ver 1.3.6 までの VJR-200 ではこの CJR を高速ロードすることはできません。Ver 1.3.7 
-		以降で対応しました。</p>
-	<p>〇バイナリ　<a href="https://github.com/find-jr200/atsemigra/releases/download/V0.3.2/atsemigra_032.zip">https://github.com/find-jr200/atsemigra/releases/download/V0.3.2/atsemigra_032.zip</a>　(9KB)</p>
+	<p>〇バイナリ　<a href="https://github.com/find-jr200/atsemigra/releases/download/V0.4.1/atsemigra_041.zip">https://github.com/find-jr200/atsemigra/releases/download/V0.4.1/atsemigra_041.zip</a> 
+	(10KB)</p>
 	<p>〇ソースコードは github へ</p>
 
 <p><a href="https://github.com/find-jr200/atsemigra/releases">
@@ -57,7 +55,14 @@ find-jr200/atsemigra (github.com)</a></p>
 	<span lang="ja">によって</span><span lang="en-US"> PC </span><span lang="ja">
 	が保護されました。」「実行しない」と表示されます。これは実行プログラムに署名がないせいらしいのだが、署名をつけるための諸々をする気はないので、ここは信用してもらって「詳細情報」－「実行」を選んでもらうしかありません。</span></p>
 	<p>　それがイヤな人はソースコードをダウンロードして、ウィルスがいないことを確認して自分でビルドしてどうぞ。Visual Studio 2015 Community でコンパイルできます。</p>
-	<p>●履歴（なんでもセミグラ）</p>
+	<p>●履歴</p>
+<p>Version 0.3.2 2020.4.12　<a href="https://github.com/find-jr200/atsemigra/releases/download/V0.3.2/atsemigra_032.zip">https://github.com/find-jr200/atsemigra/releases/download/V0.3.2/atsemigra_032.zip</a>　(9KB)</p>
+	<ul>
+		<li>(0.3.1) アプリケーション名を「あっとセミグラ」に改称しました。</li>
+		<li>(0.3.1) 従来のBASICリスト出力に加えて、CJR、BIN ファイル出力を追加しました。CJR では一つの CJR ファイルを MLOAD 
+		することでセミグラフィック画面を表示できます。BIN 出力は テキスト VRAM とアトリビュート VRAM を連結して出力します。</li>
+		<li>(0.3.2) 例外処理に不適切な部分があったため修正しました。</li>
+	</ul>
 	<p>Version 0.2.1　2018.12.24　<a href="nangra_021.zip">nangra_021.zip</a> (8KB)</p>
 	<ul>
 		<li>ソースコードがビルドできなくなっていたので修正しました。</li>
@@ -66,10 +71,13 @@ find-jr200/atsemigra (github.com)</a></p>
 	<p>Version 0.1.1　2017.4.19</p>
 	<h3>使い方</h3>
 	<p>1. 画像ファイル（いろんなフォーマットに対応←適当）をウィンドウにドラッグ＆ドロップ。</p>
-	<p>2. 修正したければ適当に修正。</p>
-	<p>3. 以下の内容でデータ作成。</p>
+	<p>2. 調整したければ R, G, B のしきい値を修正。リセットを押すと初期状態（しきい値 128）に戻します。</p>
+	<p>3. ドット単位で修正したければ適当に修正。<strong>ドット修正をした後にしきい値を変えたり、リセットを押すと初期状態に戻るので注意してください。</strong></p>
+	<p>4. 以下の内容でデータ作成。</p>
 	<p>「BIN出力」テキストVRAM、アトリビュートVRAMの内容を連結して出力。</p>
 	<p>「CJR出力」MLOAD するための CJR ファイル作成。</p>
+	<p>【注意】Ver 1.3.6 までの VJR-200 ではこの CJR を高速ロードすることはできません。Ver 1.3.7 
+		以降で対応しました。</p>
 	<p>「BASIC出力」クイックタイプ用のテキストファイルを作成。</p>
 
 <hr>
