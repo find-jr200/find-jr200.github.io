@@ -38,28 +38,28 @@
 		<li>JR2Rescue - WAV to CJR, CJR to WAV, etc converter is
 		<a href="jr2rescue_en.html">here</a>.</li>
 	</ul>
-	<p><img alt="" height="283" src="images/vjr200_1_en.png" width="350">
-	<img alt="" height="283" src="images/vjr200_2_en.png" width="350"></p>
+	<p>&nbsp;<img alt="VJR200 title1" height="283" src="images/vjr200title1_en.png" width="350">
+	<img alt="VJR200 title2" height="283" src="images/vjr200title2_en.png" width="350"></p>
 
-	<p>&nbsp; The following software was used for VJR-200 for Windows based on 
-	each license.</p>
-	<p>BSD 3 Clause License</p>
+	<p>&nbsp; The following software was used for VJR-200 for Windows.</p>
+	<p>.X88000 (https://quagma.sakura.ne.jp/manuke/x88000.html)<br>Manuke Station</p>
+	<p>* BSD 3 Clause License</p>
 	<p>MAME (http://www.mame.net/)<br>copyright-holders: Nicola Salmoria, Aaron 
 	Giles</p>
 	<p>cereal (https://uscilab.github.io/cereal/) <a href="license_cereal.txt">
 	LICENSE</a><br>copyright-holders: Randolph Voorhies, Shane Grant</p>
-	<p>Zlib License</p>
+	<p>* Zlib License</p>
 	<p>TinyXML-2 (https://github.com/leethomason/tinyxml2)<br>copyright-holder: 
 	Lee Thomason</p>
 	<h3>Operation <span lang="en">environment</span></h3>
-	<p>Windows Vista SP2 or later</p>
+	<p>Windows Vista SP2 and later</p>
 	<p>Because it uses Direct2D, it does not work on Windows XP.</p>
 	<h3>Download</h3>
-	<p>2021.6.27 Version 1.5.2</p>
+	<p>2021.10.22 - Version 1.6.1</p>
 	<p>* Binary 
-	<a href="https://github.com/find-jr200/VJR200forWindows/releases/download/V1.5.2/VJR200_152.zip">
-	https://github.com/find-jr200/VJR200forWindows/releases/download/V1.5.2/VJR200_152.zip</a> 
-	(194KB)</p>
+	<a href="https://github.com/find-jr200/VJR200forWindows/releases/download/V1.6.1/VJR200_161.zip">
+	https://github.com/find-jr200/VJR200forWindows/releases/download/V1.6.1/VJR200_161.zip</a>&nbsp; 
+	(212KB)</p>
 	<p>* Source code</p>
 	<p><a href="https://github.com/find-jr200/VJR200forWindows">
 	find-jr200/VJR200forWindows (github.com)</a></p>
@@ -69,6 +69,17 @@
 	Visual Studio.</p>
 	<p><a href="vjr200_history.html">former version</a> (Japanese page)</p>
 	<h4>Changes</h4>
+	<p>2021.10.22 - Version 1.6.1</p>
+	<ul>
+		<li>Implemented FDD. In order to use FDD, expansion ROM and image file 
+		of system disk(D88 format) are required.</li>
+		<li>Since state file was upgraded, the past file can no longer be read. 
+		Additionally, the rules for where state files are stored when using FDD 
+		have changed, so see the man section for details.</li>
+		<li>Fixed incorrect implementation of TCC ,TCD, TCF</li>
+		<li>Fixed the attribute at address 0xc9ff not being set</li>
+		<li>Fixed Other minor fixes.</li>
+	</ul>
 	<p>2021.6.27 Version 1.5.2</p>
 	<ul>
 		<li>Added jump history and the break function when reading / writing the 
@@ -111,6 +122,8 @@
 <p>MSAVE "ROM1",$A000,$BFFF (file size 8192byte)<br>
 MSAVE "ROM2",$E000,$FFFF (file size 8192byte)<br>
 MSAVE "FONT",$D000,$D7FF (file size 2048byte)</p>
+	<p>If you have a FDD system</p>
+	<p>MSAVE "CAS1:FDDROM",$D800,$DFFF (file size 2048byte)</p>
 <p>Please convert it to BIN file with JR2Rescue.</p>
 	<p>* JR2Rescue is free software that converts WAV files recorded with 
 	programs on JR-200 to CJR format and other formats. Download is
@@ -121,8 +134,10 @@ can not be registered unless it is incorrect.</p>
 <p>COPY /B ROM1.BIN+ROM2.BIN ROM.BIN</p>
 <p>&nbsp; It does not work if the order of combining is reversed. Check the file 
 size after joining should be 16384 bytes.</p>
-<p>3. &nbsp;Visual C++ 2015 redistributable 
+<p>3. &nbsp;Visual C++ 2015 - 2022 redistributable 
 package(x86) is required. Please install it if not installed.</p>
+	<p><a href="https://aka.ms/vs/17/release/vc_redist.x86.exe">
+	https://aka.ms/vs/17/release/vc_redist.x86.exe</a></p>
 
 <h2 id="kidouhen">Execution</h2>
 <p>1. Extract vjr200_xxx.zip and place VJR200.exe, VJR200_jp. dll, 
@@ -192,9 +207,12 @@ package(x86) is required. Please install it if not installed.</p>
 	<h3>Status Bar</h3>
 	<p><img alt="" height="40" src="images/status_bar1.png" width="546"></p>
 	<p>It is the name of the file mounted,&nbsp; the state of the remote 
-	terminal (ON / OFF), read / write (R / W), time counter&nbsp; from the left.</p>
+	terminal (ON/OFF), read/write (R/W), time counter&nbsp; from the left.</p>
 	<p>It is as follows during loading.</p>
 	<p><img alt="" height="34" src="images/status_bar2.png" width="184"></p>
+	<p>&nbsp; When using FDD, from the left, the tape mount file, the image of 
+	drive 1, the image of drive 2. The far right is the FDD access lamps.</p>
+	<p><img alt="" height="33" src="images/status_bar3.png" width="642"></p>
 	<h2>Menu</h2>
 <h3>File</h3>
 	<h4>Mount CJR, JR2</h4>
@@ -265,10 +283,14 @@ package(x86) is required. Please install it if not installed.</p>
 		</tr>
 		</table>
 	<h4>Save State, Load State</h4>
-	<p>&nbsp;State data is saved in association with the mounted file. The state file 
-	of abc.cjr is saved up to 9 in the same folder named abc.cjr_0.sta.&nbsp;</p>
-	<p>&nbsp; However, the state data that is not mounted is saved under the 
-	name AppData\Local\FIND_JR\VJR 200\ under the name nomount_0.sta. It is 
+	<p>&nbsp;State saves are saved in association with files only when the FDD 
+	system is disabled and tape-compatible files (CJR, JR2) are mounted.&nbsp; 
+	Up to 9 state files while mounting the file abc.cjr are saved in the same 
+	folder with the name abc.cjr_0.sta.&nbsp;</p>
+	<p>&nbsp; State data for other states (no mounted tape support file or FDD 
+	system enabled) is saved under 
+	<span style="font-family:SEGOE UI">AppData\local\FIND_JR\VJR-200\</span> 
+	with a name such as nomount_0.sta.&nbsp; It is 
 	worth noting that all state savings when using "Quick Load" share data 
 	without mounting. If you want to divide the state file for each game, please 
 	mount -&gt; LOAD, MLOAD without using Quick loading. If you need more than two 
@@ -278,7 +300,18 @@ package(x86) is required. Please install it if not installed.</p>
 	<p>The first ten pieces show the files used in "Mount CJR, JR2", the last 
 	ten pieces show the files used in "Quick Load CJR".</p>
 
-<h3>View</h3>
+<h3>FDD</h3>
+	<h4>Disk Image</h4>
+	<p>&nbsp; Select the D20 file and assign the image to two drives. To boot 
+	DISK BASIC, assign the system disk to drive 1 and reset VJR-200 
+	([File]-[Reset]).</p>
+	<p>* D20 files have the same format as D88 files.</p>
+	<h4>Detach FDD System</h4>
+	<p>&nbsp; If the VJR-200 has an FDD expansion ROM file registered, it will 
+	try to boot from the FD assuming that the FDD system is connected. Check 
+	this and reboot if you want to boot with the main unit's ROM BASIC while 
+	registering the expansion ROM.</p>
+	<h3>View</h3>
 	<h4>1x, 2x(Std), 3x</h4>
 	<p>&nbsp; Change window size.</p>
 	<h4>Full Screen</h4>
@@ -400,7 +433,8 @@ package(x86) is required. Please install it if not installed.</p>
 	<h4>FPS, CPU Speed</h4>
 	<p>&nbsp; Display FPS and CPU speed in the title bar.</p>
 	<h4>Set ROM, Font Files</h4>
-	<p>&nbsp; Specify the ROM file and Font file required for execution.</p>
+	<p>&nbsp; Specify the ROM file and Font file required for execution.&nbsp; 
+	If you have a FDD system, specify FDD expansion ROM.</p>
 	<h4>Option</h4>
 	<p><img alt="" height="414" src="images/option_emu_en.png" width="328"></p>
 	<p>* Language</p>
