@@ -36,7 +36,7 @@
 	English page is <a href="vjr200android_en.html">here</a>.</p>
 	<p class="auto-style3">いつだって、あなたのそばに JR-200</p>
 	<p class="Youtube"><iframe width="560" height="315" src="https://www.youtube.com/embed/YnjtpXf5Rog" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
-	<p>Android 4.1～11 で動作する JR-200 エミュレータです（Android 4.4 以上を推奨）。<br>縦画面は単体での使用、横画面は外付けキーボードと組み合わせた使用、またはゲームでの使用を想定しています。</p>
+	<p>Android 4.1～12 で動作する JR-200 エミュレータです（Android 4.4 以上を推奨）。<br>縦画面は単体での使用、横画面は外付けキーボードと組み合わせた使用、またはゲームでの使用を想定しています。</p>
 	<p><a href="#dousakakunin">実行環境</a><br><a href="#download">ダウンロード</a><br>
 	<a href="#preparation">準備編</a><br><a href="#kidouhen">起動編</a><br>
 	<a href="#operation">操作について</a><br><a href="#directplayer">ダイレクトプレーヤーについて</a><br>
@@ -52,7 +52,7 @@ Giles</p>
 	さんのフリー素材を使わせて頂きました。</p>
 
 <h3 id="dousakakunin">実行環境</h3>
-<p>Android 4.1～11　（実機での確認は 4.4, 5.1, 6.0, 11.0）</p>
+<p>Android 4.1～12　（実機での確認は 5.1, 6.0, 11.0, 12.0）</p>
 	<p>Android 4.4 未満では一部機能に制限があり、ゲームモード時のパフォーマンス劣化が大きいかもしれません。</p>
 	<p>
 	　インストール時、または実行時に<strong>要求されるパーミッションはストレージの読み書きとバイブレーション、音声の録音（ダイレクトプレーヤーのみ）です</strong>。ファイルの読み書きを拒否すると実行できません。ダイレクトプレーヤーを使わない場合は音声の録音を拒否しても動作します。</p>
@@ -67,6 +67,15 @@ Giles</p>
 	<p><strong>
 	※　このプログラムは十分な検証がされていません。ユーザー環境に有害な影響を与えるようなことはしていないつもりですが、いかなる損害が生じても当方は一切補償しません。了解の上ご利用下さい。</strong></p>
 	<p>Android 版のソースコードは公開の予定はありません。</p>
+	<h4>2022.11.20 Version 0.7.2</h4>
+	<p>■　APK Binary 
+	<a href="https://github.com/find-jr200/VJR200forAndroid/blob/master/vjr200-0.7.2.apk">
+	https://github.com/find-jr200/VJR200forAndroid/blob/master/vjr200-0.7.2.apk</a> 
+	(3,981KB)</p>
+	<li>ステートファイルをバージョンアップしたため、過去のファイルは読めなくなりました。</li>
+	<li>MN1271 の TCC, TCD, TCF の実装が間違っていたので修正しました。</li>
+	<li>アドレス 0xc9ff の属性が設定されていなかったので修正しました。</li>
+	<li>その他細かい修正。</li>
 	<h4>2021.8.14　Version 0.7.1</h4>
 	<p>■　APK Binary 
 	<a href="https://github.com/find-jr200/VJR200forAndroid/blob/master/vjr200-0.7.1.apk">https://github.com/find-jr200/VJR200forAndroid/blob/master/vjr200-0.7.1.apk</a> (4,078KB)</p>
