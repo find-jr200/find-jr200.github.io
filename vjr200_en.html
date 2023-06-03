@@ -52,24 +52,40 @@
 	<p>TinyXML-2 (https://github.com/leethomason/tinyxml2)<br>copyright-holder: 
 	Lee Thomason</p>
 	<h3>Operation <span lang="en">environment</span></h3>
-	<p>Windows Vista SP2 and later</p>
+	<p>up to V1.6.1 - Windows Vista SP2 and later</p>
+	<p>V1.7.1 onwards - Windows 10 and later</p>
 	<p>Because it uses Direct2D, it does not work on Windows XP.</p>
 	<h3>Download</h3>
-	<p>2022.10.22 - Version 1.6.1</p>
-	<p>* Binary 
+	<p>2023.6.4 - Version 1.7.1</p>
+	<p>* Binary</p>
+	<p>&nbsp;32bit 
 	<a href="https://github.com/find-jr200/VJR200forWindows/releases/download/V1.6.1/VJR200_161.zip">
-	https://github.com/find-jr200/VJR200forWindows/releases/download/V1.6.1/VJR200_161.zip</a>&nbsp; 
-	(212KB)</p>
+	https://github.com/find-jr200/VJR200forWindows/releases/download/V1.7.1/VJR200_171_32.zip</a>&nbsp; 
+	(211KB)</p>
+	<p>64bit 
+	<a href="https://github.com/find-jr200/VJR200forWindows/releases/download/V1.6.1/VJR200_161.zip">
+	https://github.com/find-jr200/VJR200forWindows/releases/download/V1.7.1/VJR200_171_32.zip</a>&nbsp; 
+	(238KB)</p>
 	<p>* Source code</p>
 	<p><a href="https://github.com/find-jr200/VJR200forWindows">
 	find-jr200/VJR200forWindows (github.com)</a></p>
-	<p>&nbsp; You can builld with Visual Studio 2015 Community.&nbsp; Version 1.3.1 
+	<p>&nbsp; Up to version 1.6.1 can be built with Visual Studio 2015 
+	Community, and after 1.7.1 it can be built with Visula studio 2022 
+	Community. Version 1.3.1 
 	and later require cereal V 1.2.2 (<a href="https://uscilab.github.io/cereal/">https://uscilab.github.io/cereal/</a>). 
 	Please download and deploy this library,&nbsp; add <span style="font-family:SEGOE UI">cereal-1.2.2\include\</span> to the include path of 
 	Visual Studio.</p>
 	<p><a href="vjr200_history.html">former version</a> (Japanese page)</p>
 	<h4>Changes</h4>
-	<p>2021.10.22 - Version 1.6.1</p>
+	<p>2023.6.4 - Version 1.7.1</p>
+	<ul>
+		<li>Rebuilt with Visual Studio 2022. If you are using an older runtime, 
+		you may need to install a newer version.</li>
+		<li>64bit binaries are also released.</li>
+		<li>It works on Windows 10 and later.</li>
+		<li>Fixed Other minor fixes.</li>
+	</ul>
+	<p>2022.10.22 - Version 1.6.1</p>
 	<ul>
 		<li>Implemented FDD. In order to use FDD, expansion ROM and image file 
 		of system disk(D88 format) are required.</li>
@@ -135,9 +151,11 @@ can not be registered unless it is incorrect.</p>
 <p>&nbsp; It does not work if the order of combining is reversed. Check the file 
 size after joining should be 16384 bytes.</p>
 <p>3. &nbsp;Visual C++ 2015 - 2022 redistributable 
-package(x86) is required. Please install it if not installed.</p>
-	<p><a href="https://aka.ms/vs/17/release/vc_redist.x86.exe">
+package is required. Please install it if not installed.</p>
+	<p>32bit runtime <a href="https://aka.ms/vs/17/release/vc_redist.x86.exe">
 	https://aka.ms/vs/17/release/vc_redist.x86.exe</a></p>
+	<p>64bit runtime <a href="https://aka.ms/vs/17/release/vc_redist.x64.exe">
+	https://aka.ms/vs/17/release/vc_redist.x64.exe</a></p>
 
 <h2 id="kidouhen">Execution</h2>
 <p>1. Extract vjr200_xxx.zip and place VJR200.exe, VJR200_jp. dll, 
