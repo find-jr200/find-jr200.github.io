@@ -31,18 +31,25 @@
 <a href="index.html"><img src="images/top.png" width="100" height="50" alt="TOP"></a> 
 </nav>
 <h1>JR-200 Emulator VJR-200 for Windows</h1>
+	<p><img alt="VJR200 title1" height="283" src="images/vjr200title1_en.png" width="350">
+	<img alt="VJR200 title2" height="283" src="images/vjr200title2_en.png" width="350"></p>
 	<p>&nbsp; VJR-200 is an emulator of Panasonic JR-200 (Japanese model). 
 	However, some of JR-200U software work with VJR-200. English menu and message are available.</p>
-	<ul>
-		<li>&nbsp;VJR-200 for Android is <a href="vjr200android_en.html">here</a>.&nbsp;</li>
-		<li>JR2Rescue - WAV to CJR, CJR to WAV, etc converter is
-		<a href="jr2rescue_en.html">here</a>.</li>
-	</ul>
-	<p>&nbsp;<img alt="VJR200 title1" height="283" src="images/vjr200title1_en.png" width="350">
-	<img alt="VJR200 title2" height="283" src="images/vjr200title2_en.png" width="350"></p>
+	<p><a href="#OperationEnvironment">Operation Environment</a></p>
+	<p><a href="#Download">Download</a></p>
+	<p><a href="#Preparation">Preparation</a></p>
+	<p><a href="#Execution">Execution</a></p>
+	<p><a href="#KeyDefinition">Key Definition</a></p>
+	<p><a href="#Folders">Folders</a></p>
+	<p><a href="#StatusBar">Status Bar</a></p>
+	<p><a href="#menu">Menu (Operation Manual)</a></p>
+	<p>VJR-200 for Android is <a href="vjr200android_en.html">here</a>.&nbsp;</p>
+	<p>JR2Rescue - WAV to CJR, CJR to WAV, etc converter is
+		<a href="jr2rescue_en.html">here</a>.</p>
+	<p>&nbsp;</p>
 
 	<p>&nbsp; The following software was used for VJR-200 for Windows.</p>
-	<p>.X88000 (https://quagma.sakura.ne.jp/manuke/x88000.html)<br>Manuke Station</p>
+	<p>X88000 (https://quagma.sakura.ne.jp/manuke/x88000.html)<br>Manuke Station</p>
 	<p>* BSD 3 Clause License</p>
 	<p>MAME (http://www.mame.net/)<br>copyright-holders: Nicola Salmoria, Aaron 
 	Giles</p>
@@ -51,11 +58,11 @@
 	<p>* Zlib License</p>
 	<p>TinyXML-2 (https://github.com/leethomason/tinyxml2)<br>copyright-holder: 
 	Lee Thomason</p>
-	<h3>Operation <span lang="en">environment</span></h3>
+	<h3 id="OperationEnvironment">Operation <span lang="en">Environment</span></h3>
 	<p>up to V1.6.1 - Windows Vista SP2 and later</p>
 	<p>V1.7.1 onwards - Windows 10 and later</p>
 	<p>Because it uses Direct2D, it does not work on Windows XP.</p>
-	<h3>Download</h3>
+	<h3 id="Download">Download</h3>
 	<p>2023.7.2 - Version 1.7.2</p>
 	<p>* Binary</p>
 	<p>32bit&nbsp;<a href="https://github.com/find-jr200/VJR200forWindows/releases/download/V1.7.2/VJR200_172_win32.zip">https://github.com/find-jr200/VJR200forWindows/releases/download/V1.7.2/VJR200_172_win32.zip</a>&nbsp; 
@@ -72,7 +79,7 @@
 	Please download and deploy this library,&nbsp; add <span style="font-family:SEGOE UI">cereal-1.2.2\include\</span> to the include path of 
 	Visual Studio.</p>
 	<p><a href="vjr200_history.html">former version</a> (Japanese page)</p>
-	<h4>Changes</h4>
+	<h4 id="Changes">Changes</h4>
 	<p>2023.7.2 - Version 1.7.2</p>
 	<ul>
 		<li>Fixed an issue that could cause noise in sounds.</li>
@@ -133,7 +140,7 @@
 		<li>File - Quick Load - Ctrl + Atl + Q</li>
 	</ul>
 	<p>4. &quot;File - Save CJR&quot; menu has been removed.</p>
-<h2 id="jyunbihen">Preparation</h2>
+	<h2 id="Preparation">Preparation</h2>
 <p>1. &nbsp;Extract ROM and font from actual machine.</p>
 <p>MSAVE "ROM1",$A000,$BFFF (file size 8192byte)<br>
 MSAVE "ROM2",$E000,$FFFF (file size 8192byte)<br>
@@ -157,7 +164,7 @@ package is required. Please install it if not installed.</p>
 	<p>64bit runtime <a href="https://aka.ms/vs/17/release/vc_redist.x64.exe">
 	https://aka.ms/vs/17/release/vc_redist.x64.exe</a></p>
 
-<h2 id="kidouhen">Execution</h2>
+	<h2 id="Execution">Execution</h2>
 <p>1. Extract vjr200_xxx.zip and place VJR200.exe, VJR200_jp. dll, 
 	VJR200_en.dll in the same folder. Even if you only use English, VJR 
 	200_en.dll is necessary. It will not work with VJR 200.exe alone.</p>
@@ -176,7 +183,7 @@ package is required. Please install it if not installed.</p>
 	setting to English.</p>
 	<h2>Operation</h2>
 
-<h3>Key Definition</h3>
+	<h3 id="KeyDefinition">Key Definition</h3>
 	<table style="width: 50%" class="auto-style1" border="1" cellpadding="0" cellspacing="0" >
 		<tr>
 			<td class="auto-style2">GRAPH OFF</td>
@@ -210,7 +217,7 @@ package is required. Please install it if not installed.</p>
 			<td class="auto-style2">F8</td>
 		</tr>
 	</table>
-<h3>Folders</h3>
+	<h3 id="Folders">Folders</h3>
 	<table cellpadding="0" cellspacing="0" border="1" class="auto-style1" style="width: 60%">
 		<tr>
 			<td class="auto-style2">Documents</td>
@@ -222,7 +229,7 @@ package is required. Please install it if not installed.</p>
 			<td class="auto-style2">LLIST, LPRINT (PNG)</td>
 		</tr>
 	</table>
-	<h3>Status Bar</h3>
+	<h3 id="StatusBar">Status Bar</h3>
 	<p><img alt="" height="40" src="images/status_bar1.png" width="546"></p>
 	<p>It is the name of the file mounted,&nbsp; the state of the remote 
 	terminal (ON/OFF), read/write (R/W), time counter&nbsp; from the left.</p>
@@ -231,7 +238,7 @@ package is required. Please install it if not installed.</p>
 	<p>&nbsp; When using FDD, from the left, the tape mount file, the image of 
 	drive 1, the image of drive 2. The far right is the FDD access lamps.</p>
 	<p><img alt="" height="33" src="images/status_bar3.png" width="642"></p>
-	<h2>Menu</h2>
+	<h2 id="menu">Menu (Operation Manual)</h2>
 <h3>File</h3>
 	<h4>Mount CJR, JR2</h4>
 	<p>&nbsp; Mount the CJR or JR2 file.</p>
