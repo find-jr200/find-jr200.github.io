@@ -35,17 +35,17 @@
 形式に変換したり、その他のフォーマットに変換するフリーソフトです。</p>
 
 	<ul>
-		<li>必要環境：.net Framework 3.5 以上</li>
+		<li>必要環境： Version 0.5.1. 以上　.net Framework 4.7.2 以上 　／　Version 0.4.2 以下　.net Framework 3.5 以上</li>
 		<li>読み込み可能 WAV ファイル：　サンプリング周波数　22kHz～48kHz、8bit または 16bit 量子化。チャネル数 1または2。リニア PCM のみ。</li>
 	</ul>
 
 <p><strong>※　このプログラムは十分な検証がされていません。ユーザー環境に有害な影響を与えるようなことはしていないつもりですが、いかなる損害が生じても当方は一切補償しません。了解の上ご利用下さい。</strong></p>
 
-<h4>■最新版　JR2Rescue Version 0.4.2</h4>
-	<p>2021.11.13&nbsp; 公開  
+<h4>■最新版　JR2Rescue Version 0.5.1</h4>
+	<p>2024.2.18&nbsp; 公開  
 	 
-	<a href="https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_4_2.zip">
-	https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_4_2.zip</a> (46KB)</p>
+	 
+	<a href="https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_5_1.zip">https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_5_1.zip</a> (204KB)</p>
 	<p><span lang="ja">　ダウンロードした</span>JR2Rescue<span lang="en-US">
 	</span><span lang="ja">を実行しようとすると「</span><span lang="en-US">Windows </span>
 	<span lang="ja">によって</span><span lang="en-US"> PC </span><span lang="ja">
@@ -53,7 +53,15 @@
 <p>　このプログラムを実行してのバグレポートなどは掲示板またはメール（アドレスはトップページの下の方にあります）にてお願いします。また、読込成功してベーマガプログラムや市販ソフト等のサルベージに成功した方は、よかったらゲーム画面のキャプチャを数点メールしていただけるとうれしいです。当サイトの Software コーナーで紹介させていただきます。</p>
 
 <h3>更新履歴</h3>
-	<p>2021.11.13 JR2Rescue 0.4.2</p>
+	<p>2024.2.18&nbsp; JR2Rescue 0.5.1</p>
+	<ul>
+		<li>WAV 出力フォーマットを 44.1/48kHz、8/16bit、モノ/ステレオも選べるようにしました。</li>
+		<li>実験的機能として、JR-300 のテープの CJR, BIN 化機能を追加ました。</li>
+		<li>アプリケーションアイコンを変更しました。</li>
+		<li>動作対象 .net framework が 4.7.2以上になりました。</li>
+	</ul>
+	<p>2021.11.13 
+	<a href="https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_4_2.zip">JR2Rescue 0.4.2</a> (46KB)</p>
 	<ul>
 		<li>WAV→CJR 機能が動作しない不都合を修正しました。</li>
 		<li>WAV→CJR タブにある、モトローラS フォーマットでの出力機能を削除しました。</li>
@@ -151,10 +159,12 @@
 
 <p><img alt="" height="356" src="images/jr2r_1.png" width="495"></p>
 
-<p>1.　入力 WAV ファイルを指定し、「WAV読込」を押します。「読込に失敗しました」とダイアログが出る場合は、WAV 
+<p>1.　入力 WAV ファイルと機種を指定し、「WAV読込」を押します。「読込に失敗しました」とダイアログが出る場合は、WAV 
 解析に失敗しているので、飽和度、スレッショルドレベルを変更してみます。</p>
 
-<p>●飽和度</p>
+<p><strong>【注意】</strong>　JR-300 の CJR, BIN 
+化機能は実験的機能です。機種の指定を間違うと「変換が正常に終了しました」とメッセージが出ても正常なデータは生成されません。</p>
+	<p>●飽和度</p>
 
 <p>
 　トラックバーを最小にした状態が、「入力＝出力」、つまり飽和度調整をしない状態です。バーを上げて行くに従い飽和度が高くなります。その様子は右のグラフの緑色の線で確認できます。通常はグラフが半分くらいの位置で飽和するようにしておけばいいでしょう（初期値）。</p>
@@ -182,25 +192,17 @@
 
 <p><img alt="" height="356" src="images/jr2r_2.png" width="495"></p>
 
-<p>　入力 CJR ファイルに変換元のファイルを指定し、600baud / 2400baud を選択して「WAVに変換」を押してください。通常は 
+<p>　入力 CJR ファイルに変換元のファイルを指定し、PCM フォーマット、600baud / 2400baud を選択して「WAVに変換」を押してください。通常は 
 2400baud を選択すればいいでしょう。</p>
-
-<p>※注意点</p>
-
-<p>　出力される WAV ファイルは 22KHz, 8bit, モノラル固定です。</p>
 
 <h3>3. JR2→WAV</h3>
 	<p>JR2 ファイルを WAV ファイルに変換します。</p>
 	<p><img alt="" height="357" src="images/jr2r_3.png" width="497"></p>
-	<p>入力 JR2 ファイルと出力 WAV ファイルを指定し、「WAVに変換」を押してください。</p>
+	<p>入力 JR2 ファイルと出力 WAV ファイルを指定し、PCM フォーマットを選択して「WAVに変換」を押してください。</p>
 	<p>WAV 化した際に JR2 
 	ファイルにもともと付加してあるブランクでは正常に読み込めない場合は「ブランク拡張」にチェックを入れてください。プログラム、データ間のブランクが5秒程度になります（もともとのブランクがそれより長い場合はそのままになります）。ただし、もともとの 
 	JR2 ファイルがブランクなしで作成されている場合は、「ブランク拡張」にチェックを入れても拡張されません。その場合は JR2 
 	ファイルをブランクありで作り直してください。</p>
-
-<p>※注意点</p>
-
-<p>　出力される WAV ファイルは 22KHz, 8bit, モノラル固定です。</p>
 
 	<h3>4. CJR→JR2</h3>
 	<p>　CJR ファイルを JR2 フォーマットに変換します。</p>

@@ -33,7 +33,8 @@
 programs on JR-200 to CJR format and other formats.</p>
 
 	<ul>
-		<li>Operation Environment : .net Framework 3.5 or later</li>
+		<li>Operation Environment : Version 0.5.1 and later .net Framework 4.7.2 
+		and later / Version 0.4.2 and older .net Framework 3.5 and later </li>
 		<li>Readable WAV file : sampling frequency 22kHz-48kHz, quantize 8bit or 16bit, 
 		channel 1 or 2.&nbsp; liner PCM only.</li>
 	</ul>
@@ -41,14 +42,16 @@ programs on JR-200 to CJR format and other formats.</p>
 	a harmful effect on the user environment, but I will not compensate for any 
 	damage. Please use it after understanding.</strong></p>
 
-<h4>* Latest version 0.4.2</h4>
-	<p>2021.11.13 
-	<a href="https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_4_2.zip">
-	https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_4_2.zip</a> (46KB)</p>
-	<p>*Change point</p>
+<h4>* Latest Version 0.5.1</h4>
+	<p>2024.2.18 
+	<a href="https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_5_1.zip">https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_5_1.zip</a> (204KB)</p>
+	<p>*Changed Point</p>
 	<ul>
-		<li>Fixed the problem that WAVtoCJR function does not work.</li>
-		<li>Removed the Motorola S format output feature on WAVtoCJR tab.</li>
+		<li>Added output WAV format (44.1/48kHz, 8/16bits, mono/stereo).</li>
+		<li>*Experimental* Added the function to convert JR-300 tapes to CJR and 
+		BIN formats.</li>
+		<li>changed application icon.</li>
+		<li>required .net framework 4.7.2 and later</li>
 	</ul>
 
 <h3>File Composition</h3>
@@ -64,7 +67,7 @@ programs on JR-200 to CJR format and other formats.</p>
 <p>&nbsp; Convert wav file to CJR, BIN format.</p>
 
 <p><img alt="" height="357" src="images/jr2r_1en.png" width="497"></p>
-	<p>1. Specify the input WAV file and press "Read WAV". If the dialog 
+	<p>1. Specify the input WAV file, output format, Model and press "Read WAV". If the dialog 
 	"failed" appears, WAV analysis has failed, so try changing the saturation 
 	and threshold levels.</p>
 	<p>2. If "Read WAV" is successful, the "Write File" button will be enabled. 
@@ -78,21 +81,14 @@ programs on JR-200 to CJR format and other formats.</p>
 <p><img alt="" height="357" src="images/jr2r_2en.png" width="497"></p>
 	<p>Please specify the source file as the input CJR file and the output file 
 	as the WAV file, select 600baud / 
-	2400baud and press "Convert to WAV"</p>
-
-<p>* Notice</p>
-
-<p>&nbsp; The output WAV format is 22KHz, 8bit, monaural fixed.</p>
+	2400baud , PCM formats and press "Convert to WAV"</p>
 
 <h3>3. JR2toWAV</h3>
 	<p>Convert JR2 to WAV</p>
 	<p><img alt="" height="357" src="images/jr2r_3en.png" width="497"></p>
 	<p>Please specify the input file as the input CJR file and the output file 
-	as the WAV file, press "Convert to WAV"</p>
+	as the WAV file and PCM formats, press "Convert to WAV"</p>
 
-<p>* Notice</p>
-
-<p>&nbsp; The output WAV format is 22KHz, 8bit, monaural fixed.&nbsp;</p>
 	<h3>4. CJR to JR2</h3>
 	<p>&nbsp; Convert CJR file to JR2 file.</p>
 	<p><img alt="" height="357" src="images/jr2r_4en.png" width="497"></p>
