@@ -32,10 +32,15 @@ th {
 </nav>
 
 <h1>JR2(JR-200 Raw)フォーマットについて</h1>
+	<p>2025.1.4　フォーマットバージョンを1.1に更新</p>
 	<p>　JR2 フォーマットは JR-200 が MN1271 のレジスタ $C80D 
 	に書き込む値をそのまま記録するフォーマットです。ちなみに名前の由来は <strong>JR</strong>-200 <strong>R</strong>aw 
 	→ JRR → JR^2 → JR2 というシャレです（意味不明）。</p>
-	<p>&nbsp;&nbsp;特徴</p>
+	<h4>更新情報</h4>
+	<p>　ファイルフォーマットを 1.1 にバージョンアップしました。8 バイト目の MSB 
+	を WAV から JR2 に変換したファイルのフラグとして使うことにしました。</p>
+	<p>　このフラグが立っている JR2 ファイルのバージョンは 1.1になります。そのほかのデータに変更はありません。</p>
+	<h4>&nbsp;特徴</h4>
 	<ul>
 		<li>複数のプログラム、データをまとめられるので自動ロードのソフトの扱いが簡単になる</li>
 		<li>テープに記録する信号に近い状態なので、特殊フォーマットに対応できるかもしれない</li>
@@ -92,7 +97,7 @@ th {
 			<td style="width: 10%" class="auto-style2">'2'(0x32)</td>
 			<td style="width: 10%" class="auto-style2">'\0' (0)</td>
 			<td style="width: 10%" class="auto-style2">1</td>
-			<td style="width: 10%" class="auto-style2">0</td>
+			<td style="width: 10%" class="auto-style2">1</td>
 			<td style="width: 10%" class="auto-style2">0x10</td>
 			<td style="width: 10%" class="auto-style2">0</td>
 		</tr>
@@ -117,7 +122,7 @@ th {
 		</tr>
 		<tr>
 			<td class="auto-style2">Value</td>
-			<td class="auto-style2">0</td>
+			<td class="auto-style2">0x80</td>
 			<td class="auto-style2">0</td>
 			<td class="auto-style2">0</td>
 			<td class="auto-style2">0</td>
@@ -128,7 +133,8 @@ th {
 		</tr>
 		<tr>
 			<td class="auto-style2">description</td>
-			<td colspan="8" class="auto-style2">reserved</td>
+			<td class="auto-style2">MSB:WAV toJR2</td>
+			<td colspan="7" class="auto-style2">reserved</td>
 		</tr>
 		<tr>
 			<th>Offset</th>

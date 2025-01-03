@@ -42,12 +42,26 @@ programs on JR-200 to CJR format and other formats.</p>
 	a harmful effect on the user environment, but I will not compensate for any 
 	damage. Please use it after understanding.</strong></p>
 
-<h4>* Latest Version 0.5.1</h4>
-	<p>2024.2.18 
-	<a href="https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_5_1.zip">https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_5_1.zip</a> (204KB)</p>
-	<p>*Changed Point</p>
+<h4>* Latest Version 0.6.1</h4>
+	<p>
+	<a href="https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_6_1.zip">https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_6_1.zip</a> (208KB)</p>
+	<h4>Update Histry</h4>
+	<p>2025.1.4 JR2Rescue 0.6.1</p>
 	<ul>
-		<li>Added output WAV format (44.1/48kHz, 8/16bits, mono/stereo).</li>
+		<li>added WAV to JR2 conversion in WAV to CJR tab. This feature is for running tmq special 
+		format tapes.</li>
+		<li>removed 22KHz WAV creation function in JR2 to WAV tab (because the 
+		frequency shift is large at 22kHz)</li>
+		<li>added &quot;Overwrite BaudRate Byte&quot; checkbox in CJR to JR2 tab. Turn 
+		this off only when adding tmq special format. <strong>Furthermore, the special 
+		format can only be read at 600 baud by VJR-200. It cannot be read at 
+		2400baud.</strong></li>
+	</ul>
+	<p>2024.2.18 
+	JR2Rescue 0.5.1&nbsp; 
+	<a href="https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_5_1.zip">https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_5_1.zip</a> (204KB)</p>
+	<ul>
+		<li>added output WAV format (44.1/48kHz, 8/16bits, mono/stereo).</li>
 		<li>*Experimental* Added the function to convert JR-300 tapes to CJR and 
 		BIN formats.</li>
 		<li>changed application icon.</li>
@@ -64,34 +78,63 @@ programs on JR-200 to CJR format and other formats.</p>
 
 <h3>1. WAV to CJR</h3>
 
-<p>&nbsp; Convert wav file to CJR, BIN format.</p>
+<p>&nbsp; Convert wav file to CJR, BIN, JR2 format.</p>
 
-<p><img alt="" height="357" src="images/jr2r_1en.png" width="497"></p>
+<p><img alt="" height="362" src="images/jr2r_1en.png" width="497"></p>
 	<p>1. Specify the input WAV file, output format, Model and press "Read WAV". If the dialog 
 	"failed" appears, WAV analysis has failed, so try changing the saturation 
 	and threshold levels.</p>
 	<p>2. If "Read WAV" is successful, the "Write File" button will be enabled. 
 	Select the output format and click the "Write File" button. You can also 
 	write different formats in quick succession.&nbsp;</p>
+	<p>* The JR2 format can also be used with regular formats, but it does not 
+	check whether the checksums match, so it is recommended to use it only with 
+	special format tapes. Even if a dialog saying &quot;Conversion completed 
+	successfully&quot; appears after converting to JR2, it does not necessarily mean 
+	that the file can be loaded correctly.</p>
+	<p><a href="aboutjr2format_en.html">About JR2 format</a></p>
+	<p><strong>the special format can only be read at 600 baud by VJR-200. It 
+	cannot be read at 2400baud.</strong></p>
+	<p>* Fixed to 2400 baoud(CJR)</p>
+	<p>&nbsp; Please be sure to check this before use. If baud rate of the CJR 
+	file is set to 600 baud, it cannot be loaded with Virtual Panasonic JR200U. 
+	Uncheck this only if you want to create a CJR with 600 baud specified for 
+	special reasons, or if you have a special format that does not have a baud 
+	rate specified.</p>
+	<p>* Wave Adjustment(JR2)</p>
+	<p>&nbsp; It correct the loaded waveform to be 1200Hz or 2400Hz. Normally, 
+	you should convert it with it checked, but if it does not load correctly, 
+	try unchecking it.</p>
 
 <h3>2. CJR to WAV</h3>
 
 <p>&nbsp; Convert CJR file to WAV file.</p>
 
-<p><img alt="" height="357" src="images/jr2r_2en.png" width="497"></p>
+<p><img alt="" height="362" src="images/jr2r_2en.png" width="497"></p>
 	<p>Please specify the source file as the input CJR file and the output file 
 	as the WAV file, select 600baud / 
 	2400baud , PCM formats and press "Convert to WAV"</p>
 
 <h3>3. JR2toWAV</h3>
 	<p>Convert JR2 to WAV</p>
-	<p><img alt="" height="357" src="images/jr2r_3en.png" width="497"></p>
+	<p><img alt="" height="362" src="images/jr2r_3en.png" width="497"></p>
+	<p><strong>*CAUTION*</strong></p>
+	<p><strong>&nbsp; JR2 files created with the WAV to JR2 function cannot be 
+	converted back to WAV. This is because loud noises may be recorded, and 
+	playing them back may damage speakers or your hearing.</strong></p>
 	<p>Please specify the input file as the input CJR file and the output file 
 	as the WAV file and PCM formats, press "Convert to WAV"</p>
+	<p>* Blank Expansion</p>
+	<p>&nbsp; If the converted wav file cannot be loaded properly due to 
+	insufficient blanks, please check &quot;Blank Expansion&quot;. The blank between the 
+	program and data will be approximately 5 seconds (if the original blank is 
+	longer than that, it will remain as is). However, if the original JR2 file 
+	was created without blanks, it will not be expanded even if you check &quot;Blank 
+	Expansion&quot;. In that case, please recreate the JR2 file with blanks.</p>
 
 	<h3>4. CJR to JR2</h3>
 	<p>&nbsp; Convert CJR file to JR2 file.</p>
-	<p><img alt="" height="357" src="images/jr2r_4en.png" width="497"></p>
+	<p><img alt="" height="362" src="images/jr2r_4en.png" width="497"></p>
 	<p>* What's JR2 Format</p>
 	<p>&nbsp;See <a href="aboutjr2format_en.html">about JR2 Format</a></p>
 	<p>* About output file</p>
@@ -104,13 +147,26 @@ programs on JR-200 to CJR format and other formats.</p>
 	<p>&nbsp; "Add blank" is necessary for those that cannot be loaded normally 
 	without adding a blank (e.g. Swashbuckler) .&nbsp; When you convert these 
 	games to JR2 format, specify at least 1000 to 1500 bytes or more blanks.</p>
+	<p>* About Baud Rate</p>
+	<p>&nbsp; For normal format tapes, there is no difference in accuracy 
+	between 600 baud and 2400 baud as long as JR2 files are read by the VJR-200, 
+	so there is no advantage to choosing 600 baud except for special 
+	experimental purposes.</p>
+	<p>&nbsp; <strong>However, for some special format software 2400 baud will 
+	cause a loading error, so it is necessary to create it at 600 baud.</strong></p>
+	<p>&nbsp; The &quot;Overwrite BaudRate Byte&quot; ON/OFF function is only used when 
+	adding a special format CJR. Normal CJRs are turned on and the baud rate 
+	specification byte (24th byte of the header block) is rewritten to the 
+	specified baud rate, but if a special CJR without a header block is 
+	rewritten, the data will be destroyed, so turn this function off.</p>
+	<p>&nbsp; Normally, be sure to check &quot;Overwrite BaudRate Byte&quot; before use.&nbsp;</p>
 	<h3>5. Multi CJR</h3>
 	<p>* What's Multi CJR</p>
 	<p>&nbsp; Multi CJR file is the file which merge separated area (e.g. text 
 	vram and attribute vram, machine language and user defined character area). 
 	<span class="auto-style1">However, you can't merge BASIC program (SAVEd file) and Machine 
 	Language(MSAVEd file)</span>. You can only merge MSAVEd files.</p>
-	<p><img alt="" height="357" src="images/jr2r_5en.png" width="497"></p>
+	<p><img alt="" height="362" src="images/jr2r_5en.png" width="497"></p>
 	<p>1. Drag and drop the MSAVE CJR file to the list box. To delete a file, 
 	select it and press the Delete key. You can drop multiple files, but a BASIC 
 	file (=saved file) will result in an error when writing.</p>
@@ -122,7 +178,7 @@ programs on JR-200 to CJR format and other formats.</p>
 
 <p>2. Convert BIN file to CJR file.</p>
 
-<p><img alt="" height="357" src="images/jr2r_6en.png" width="497"></p>
+<p><img alt="" height="362" src="images/jr2r_6en.png" width="497"></p>
 
 <hr>
 <p style="text-align:center">[<a href="index.html">TOP PAGE</a>]</p>
