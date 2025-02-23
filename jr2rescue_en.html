@@ -42,12 +42,16 @@ programs on JR-200 to CJR format and other formats.</p>
 	a harmful effect on the user environment, but I will not compensate for any 
 	damage. Please use it after understanding.</p>
 
-<h4>* Latest Version 0.5.1</h4>
+<h4>* Latest Version 0.6.2</h4>
 	<p>
-	<a href="https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_5_1.zip">https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_5_1.zip</a> (204KB)</p>
+	<a href="https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_6_2.zip">https://github.com/find-jr200/JR2Rescue/blob/main/JR2Rescue0_6_2.zip</a> (208KB)</p>
 	<h4>Update Histry</h4>
-	<p>2025.1.4 JR2Rescue 0.6.1 <strong>* Publication has been temporarily 
-	suspended while a bug is being fixed.</strong></p>
+	<p>2025.2.23 JR2Rescue 0.6.2</p>
+	<ul>
+		<li>Fixed an issue where 44.1kHz, monaural, 16bit, 2400 baud WAV was not 
+		created correctly using the CJRtoWAV function.</li>
+	</ul>
+	<p>2025.1.4 JR2Rescue 0.6.1</p>
 	<ul>
 		<li>added WAV to JR2 conversion in WAV to CJR tab. This feature is for running tmq special 
 		format tapes.</li>
@@ -96,12 +100,12 @@ programs on JR-200 to CJR format and other formats.</p>
 	<p><a href="aboutjr2format_en.html">About JR2 format</a></p>
 	<p><strong>the special format can only be read at 600 baud by VJR-200. It 
 	cannot be read at 2400baud.</strong></p>
-	<p>* Fixed to 2400 baoud(CJR)</p>
-	<p>&nbsp; Please be sure to check this before use. If baud rate of the CJR 
-	file is set to 600 baud, it cannot be loaded with Virtual Panasonic JR200U. 
-	Uncheck this only if you want to create a CJR with 600 baud specified for 
-	special reasons, or if you have a special format that does not have a baud 
-	rate specified.</p>
+	<p>* Fixed to 2400 baud(CJR)</p>
+	<p>&nbsp; In general, be sure to check this before use.&nbsp; If baud rate 
+	of the CJR file is set to 600 baud, it cannot be loaded with Virtual 
+	Panasonic JR200U. Uncheck this option only when you want to create a CJR 
+	with 600 baud specified for special reasons, or when loading a special 
+	format that does not have a baud rate specified.</p>
 	<p>* Wave Adjustment(JR2)</p>
 	<p>&nbsp; It correct the loaded waveform to be 1200Hz or 2400Hz. Normally, 
 	you should convert it with it checked, but if it does not load correctly, 
@@ -112,7 +116,7 @@ programs on JR-200 to CJR format and other formats.</p>
 <p>&nbsp; Convert CJR file to WAV file.</p>
 
 <p><img alt="" height="362" src="images/jr2r_2en.png" width="497"></p>
-	<p>Please specify the source file as the input CJR file and the output file 
+	<p>&nbsp; Please specify the source file as the input CJR file and the output file 
 	as the WAV file, select 600baud / 
 	2400baud , PCM formats and press "Convert to WAV"</p>
 
@@ -123,7 +127,7 @@ programs on JR-200 to CJR format and other formats.</p>
 	<p><strong>&nbsp; JR2 files created with the WAV to JR2 function cannot be 
 	converted back to WAV. This is because loud noises may be recorded, and 
 	playing them back may damage speakers or your hearing.</strong></p>
-	<p>Please specify the input file as the input CJR file and the output file 
+	<p>&nbsp; Please specify the input file as the input CJR file and the output file 
 	as the WAV file and PCM formats, press "Convert to WAV"</p>
 	<p>* Blank Expansion</p>
 	<p>&nbsp; If the converted wav file cannot be loaded properly due to 
